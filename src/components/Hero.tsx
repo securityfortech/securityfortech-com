@@ -79,8 +79,10 @@ const Hero = () => {
             ref={subheadingRef}
             className="text-lg md:text-xl font-exo text-cyber-light/90 mb-10 max-w-2xl opacity-0 transform translate-y-8 transition-all duration-1000"
           >
-            Protect your digital infrastructure with our advanced security solutions. 
-            We deploy cutting-edge technology to safeguard your most valuable assets.
+            We secure your products, applications, infrastructure, and workstations, 
+            so you can focus on growth. Our expertise in cybersecurity, privacy, 
+            and compliance help you scale and close deals by checking every security 
+            box your customers expect.
           </p>
           
           <div 
