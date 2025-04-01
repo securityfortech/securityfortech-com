@@ -49,7 +49,9 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://cal.com/securityfortech/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2 bg-cyber-dark border border-cyber-primary text-cyber-light hover:shadow-neon transition-all duration-300 rounded font-medium"
           >
             Book Us
@@ -91,7 +93,9 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://cal.com/securityfortech/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 px-8 py-3 bg-cyber-dark border border-cyber-primary text-cyber-light hover:shadow-neon transition-all duration-300 rounded-md font-medium"
             >

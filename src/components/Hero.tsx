@@ -90,7 +90,9 @@ const Hero = () => {
             className="opacity-0 transition-opacity duration-1000 flex flex-col sm:flex-row gap-4"
           >
             <a 
-              href="#contact" 
+              href="https://cal.com/securityfortech/"
+              target="_blank"
+              rel="noopener noreferrer" 
               className="inline-flex items-center justify-center px-8 py-3 font-medium rounded-md relative overflow-hidden group"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-cyber-primary to-cyber-secondary opacity-70 group-hover:opacity-100 transition-opacity duration-300"></span>
