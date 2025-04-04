@@ -1,5 +1,5 @@
 
-# SecurityforTech - Cybersecurity Landing Page
+# securityfortech.com - website
 
 This project is a cyberpunk-themed landing page for a cybersecurity company called SecurityforTech.com. The design is inspired by Tron, Blade Runner, and modern hacker culture, featuring a purple-dominant cyberpunk aesthetic.
 
