@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
+import { posthog } from "../providers/PostHogProvider";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +20,19 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrolled]);
+  
+  const handleMobileMenuToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    posthog.capture("toggle_mobile_menu", { state: !mobileMenuOpen ? "open" : "closed" });
+  };
+  
+  const trackNavClick = (item: string) => {
+    posthog.capture("nav_click", { item });
+  };
+  
+  const trackBookUsClick = () => {
+    posthog.capture("book_us_click");
+  };
 
   return (
     <header
@@ -42,6 +56,7 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
+              onClick={() => trackNavClick(item)}
               className="relative text-cyber-light hover:text-cyber-primary transition-colors duration-300 font-exo font-medium group"
             >
               {item}
@@ -52,6 +67,7 @@ const Navbar = () => {
             href="https://cal.com/securityfortech/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackBookUsClick}
             className="px-5 py-2 bg-cyber-dark border border-cyber-primary text-cyber-light hover:shadow-neon transition-all duration-300 rounded font-medium"
           >
             Book Us
@@ -61,7 +77,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-cyber-light hover:text-cyber-primary"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={handleMobileMenuToggle}
         >
           <Menu size={24} />
         </button>
@@ -75,7 +91,7 @@ const Navbar = () => {
       >
         <div className="container h-full flex flex-col items-center justify-center">
           <button
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={handleMobileMenuToggle}
             className="absolute top-6 right-6 text-cyber-light"
           >
             ✕
@@ -86,7 +102,10 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  trackNavClick(item);
+                  setMobileMenuOpen(false);
+                }}
                 className="text-2xl text-cyber-light hover:text-cyber-primary hover:shadow-neon transition-colors duration-300"
               >
                 {item}
@@ -96,7 +115,10 @@ const Navbar = () => {
               href="https://cal.com/securityfortech/"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                trackBookUsClick();
+                setMobileMenuOpen(false);
+              }}
               className="mt-4 px-8 py-3 bg-cyber-dark border border-cyber-primary text-cyber-light hover:shadow-neon transition-all duration-300 rounded-md font-medium"
             >
               Book Us
