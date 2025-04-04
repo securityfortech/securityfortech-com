@@ -9,6 +9,8 @@ posthog.init(
   {
     api_host: 'https://app.posthog.com',
     capture_pageview: false, // We'll capture pageviews manually
+    person_profiles: 'always',
+    capture_pageleave: true
   }
 );
 
