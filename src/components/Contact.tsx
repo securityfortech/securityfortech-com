@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -31,21 +30,11 @@ const Contact = () => {
                 
                 <div className="flex items-center justify-center gap-4">
                   <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-cyber-light font-medium mb-1">Phone</h4>
-                    <a href="tel:+1234567890" className="text-cyber-light/70 hover:text-cyber-primary transition-colors">+1 (234) 567-890</a>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-center gap-4">
-                  <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-cyber-light font-medium mb-1">Location</h4>
-                    <p className="text-cyber-light/70">Cyber Tower, 123 Security Street, Tech City</p>
+                    <p className="text-cyber-light/70">Europe, the Middle East and Africa</p>
                   </div>
                 </div>
               </div>
