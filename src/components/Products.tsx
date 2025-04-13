@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Shield, Bug, Lock, Brain } from 'lucide-react';
+import { Shield, Lock, Brain } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ProductProps {
   name: string;
@@ -11,33 +13,61 @@ interface ProductProps {
 }
 
 const ProductShowcase = ({ name, description, features, mockupClassName, icon }: ProductProps) => {
+  const [loaded, setLoaded] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center mb-24">
       <div className="w-full md:w-1/2">
-        <div className={`cyber-blur p-6 rounded-lg aspect-video relative ${mockupClassName} flex items-center justify-center`}>
-          <div className="absolute top-4 left-4 flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        {loaded ? (
+          <div className={`cyber-blur p-6 rounded-lg aspect-video relative ${mockupClassName} flex items-center justify-center`}>
+            <div className="absolute top-4 left-4 flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div className="text-cyber-light/70 opacity-40">
+              {icon}
+            </div>
           </div>
-          <div className="text-cyber-light/70 opacity-40">
-            {icon}
-          </div>
-        </div>
+        ) : (
+          <Skeleton className="h-[300px] w-full rounded-lg" />
+        )}
       </div>
       
       <div className="w-full md:w-1/2">
-        <h3 className="text-2xl font-orbitron font-semibold mb-3 text-cyber-primary">{name}</h3>
-        <p className="text-cyber-light/80 mb-6 font-exo">{description}</p>
-        
-        <ul className="space-y-2">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <span className="text-cyber-accent">✓</span>
-              <span className="text-cyber-light/70">{feature}</span>
-            </li>
-          ))}
-        </ul>
+        {loaded ? (
+          <>
+            <h3 className="text-2xl font-orbitron font-semibold mb-3 text-cyber-primary">{name}</h3>
+            <p className="text-cyber-light/80 mb-6 font-exo">{description}</p>
+            
+            <ul className="space-y-2">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-cyber-accent">✓</span>
+                  <span className="text-cyber-light/70">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <div className="space-y-4">
+            <Skeleton className="h-8 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <div className="space-y-2 mt-6">
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-5/6" />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -78,26 +108,18 @@ const Products = () => {
         "Integration with CI/CD pipelines",
         "Real-time security alerts and notifications",
         "Comprehensive dashboard for vulnerability management",
-        "Detailed remediation guides and recommendations"
-      ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
-      icon: <Bug className="w-32 h-32" />
-    },
-    {
-      name: "Vulnerability Management",
-      description: "End-to-end vulnerability detection, assessment, and remediation for your software and infrastructure.",
-      features: [
+        "Detailed remediation guides and recommendations",
         "Continuous vulnerability scanning",
         "Risk-based prioritization",
         "Integration with development workflows",
         "Compliance reporting and documentation",
         "Automated remediation workflows"
       ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-secondary/20 to-cyber-dark",
+      mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
       icon: <Shield className="w-32 h-32" />
     },
     {
-      name: "OpenTrust Trust Center",
+      name: "OpenTrust",
       description: "A comprehensive platform for building, managing, and showcasing your security posture and compliance status.",
       features: [
         "Security documentation portal",
