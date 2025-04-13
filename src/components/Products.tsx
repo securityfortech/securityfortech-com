@@ -108,8 +108,7 @@ const Products = () => {
         "Detailed remediation guides and recommendations",
         "Continuous vulnerability scanning",
         "Risk-based prioritization",
-        "Integration with development workflows",
-        "Compliance reporting and documentation"
+        "Integration with development workflows"
       ],
       mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
       icon: <Shield className="w-32 h-32" />
@@ -172,3 +171,4 @@ const Products = () => {
 };
 
 export default Products;
+
