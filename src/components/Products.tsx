@@ -1,22 +1,27 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Shield, Bug, Lock, Brain } from 'lucide-react';
 
 interface ProductProps {
   name: string;
   description: string;
   features: string[];
   mockupClassName: string;
+  icon: React.ReactNode;
 }
 
-const ProductShowcase = ({ name, description, features, mockupClassName }: ProductProps) => {
+const ProductShowcase = ({ name, description, features, mockupClassName, icon }: ProductProps) => {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center mb-24">
       <div className="w-full md:w-1/2">
-        <div className={`cyber-blur p-6 rounded-lg aspect-video relative ${mockupClassName}`}>
+        <div className={`cyber-blur p-6 rounded-lg aspect-video relative ${mockupClassName} flex items-center justify-center`}>
           <div className="absolute top-4 left-4 flex gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+          <div className="text-cyber-light/70 opacity-40">
+            {icon}
           </div>
         </div>
       </div>
@@ -66,40 +71,56 @@ const Products = () => {
 
   const products = [
     {
-      name: "SecureShield™",
-      description: "An all-in-one security dashboard for monitoring and managing all aspects of your cybersecurity infrastructure.",
+      name: "OpenFix",
+      description: "A comprehensive platform for vulnerability management and remediation across your entire development lifecycle.",
       features: [
-        "Real-time threat monitoring and detection",
-        "Comprehensive security analytics",
-        "Automated incident response",
-        "User-friendly dashboard with customizable alerts",
-        "Compliance reporting and documentation"
+        "Automated vulnerability scanning and triage",
+        "Integration with CI/CD pipelines",
+        "Real-time security alerts and notifications",
+        "Comprehensive dashboard for vulnerability management",
+        "Detailed remediation guides and recommendations"
       ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark"
+      mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
+      icon: <Bug className="w-32 h-32" />
     },
     {
-      name: "CipherGuard™",
-      description: "Advanced encryption toolkit that secures your data with military-grade encryption algorithms.",
+      name: "Vulnerability Management",
+      description: "End-to-end vulnerability detection, assessment, and remediation for your software and infrastructure.",
       features: [
-        "AES-256 encryption standard",
-        "End-to-end encryption for all communications",
-        "Key management system",
-        "Secure file sharing and storage",
-        "Integration with existing security systems"
+        "Continuous vulnerability scanning",
+        "Risk-based prioritization",
+        "Integration with development workflows",
+        "Compliance reporting and documentation",
+        "Automated remediation workflows"
       ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-secondary/20 to-cyber-dark"
+      mockupClassName: "bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-secondary/20 to-cyber-dark",
+      icon: <Shield className="w-32 h-32" />
     },
     {
-      name: "ThreatHunter™",
-      description: "AI-powered threat detection system that identifies and neutralizes threats before they compromise your systems.",
+      name: "OpenTrust Trust Center",
+      description: "A comprehensive platform for building, managing, and showcasing your security posture and compliance status.",
       features: [
-        "Machine learning-based threat analysis",
-        "Behavioral anomaly detection",
-        "Zero-day vulnerability protection",
-        "Automated threat neutralization",
-        "Detailed forensic analysis and reporting"
+        "Security documentation portal",
+        "Compliance certification management",
+        "Customer security questionnaire automation",
+        "Real-time security status dashboard",
+        "Vendor risk management tools"
       ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-accent/20 to-cyber-dark"
+      mockupClassName: "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-accent/20 to-cyber-dark",
+      icon: <Lock className="w-32 h-32" />
+    },
+    {
+      name: "Ae/maeth Agentic AI",
+      description: "Agentic AI for augmented CISO capabilities, providing intelligent security decision support and automation.",
+      features: [
+        "AI-driven security analysis and recommendations",
+        "Automated threat hunting and response",
+        "Intelligent security policy management",
+        "Predictive risk assessment",
+        "Natural language security query interface"
+      ],
+      mockupClassName: "bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/30 to-cyber-dark",
+      icon: <Brain className="w-32 h-32" />
     }
   ];
 
@@ -123,6 +144,7 @@ const Products = () => {
               description={product.description}
               features={product.features}
               mockupClassName={product.mockupClassName}
+              icon={product.icon}
             />
           ))}
         </div>
