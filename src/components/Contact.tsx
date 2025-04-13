@@ -13,63 +13,7 @@ const Contact = () => {
           <p className="text-cyber-light/80 font-exo">Get in touch with our team to discuss how we can help secure your tech company.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <div className="cyber-blur p-8 rounded-lg">
-            <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light">Send a Message</h3>
-            
-            <form className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm text-cyber-light/80 block">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full bg-cyber-dark/50 text-cyber-light border border-cyber-primary/30 rounded-md px-4 py-3 focus:outline-none focus:border-cyber-primary transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm text-cyber-light/80 block">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full bg-cyber-dark/50 text-cyber-light border border-cyber-primary/30 rounded-md px-4 py-3 focus:outline-none focus:border-cyber-primary transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm text-cyber-light/80 block">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  className="w-full bg-cyber-dark/50 text-cyber-light border border-cyber-primary/30 rounded-md px-4 py-3 focus:outline-none focus:border-cyber-primary transition-colors"
-                  placeholder="How can we help?"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm text-cyber-light/80 block">Message</label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  className="w-full bg-cyber-dark/50 text-cyber-light border border-cyber-primary/30 rounded-md px-4 py-3 focus:outline-none focus:border-cyber-primary transition-colors resize-none"
-                  placeholder="Tell us about your security needs..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center w-full px-6 py-3 font-medium rounded-md relative overflow-hidden group"
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyber-primary to-cyber-secondary opacity-80 group-hover:opacity-100 transition-opacity"></span>
-                <span className="absolute inset-0 w-full h-full animate-pulse-glow opacity-0 group-hover:opacity-100"></span>
-                <span className="relative text-cyber-light font-orbitron tracking-wide">Send Message</span>
-              </button>
-            </form>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-10 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div>
             <div className="mb-10">
