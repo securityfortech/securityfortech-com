@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield, Server, Lock, Code, Database, Radio } from 'lucide-react';
+import { ShieldCheck, Code, Triangle, FileCode, FileLock, Wrench } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -23,34 +23,34 @@ const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
 const Services = () => {
   const services = [
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Threat Protection",
-      description: "Advanced detection and mitigation of cyber threats in real-time with our AI-powered security systems."
-    },
-    {
-      icon: <Server className="w-8 h-8" />,
-      title: "Infrastructure Security",
-      description: "Comprehensive protection for your servers, networks, and cloud infrastructure against intrusions."
-    },
-    {
-      icon: <Lock className="w-8 h-8" />,
-      title: "Encryption Systems",
-      description: "Military-grade encryption solutions to secure sensitive data and communications."
+      icon: <ShieldCheck className="w-8 h-8" />,
+      title: "Compliance",
+      description: "Comprehensive regulatory compliance solutions to meet industry standards including SOC 2, ISO 27001, GDPR, HIPAA, and more."
     },
     {
       icon: <Code className="w-8 h-8" />,
+      title: "AppSec",
+      description: "Application security testing, vulnerability assessments, and remediation strategies for your software development lifecycle."
+    },
+    {
+      icon: <Triangle className="w-8 h-8" />,
+      title: "Threat Modeling",
+      description: "Proactive identification and mitigation of potential security threats to your systems and infrastructure before deployment."
+    },
+    {
+      icon: <FileCode className="w-8 h-8" />,
       title: "Secure Development",
-      description: "Security audits and implementation for your software development process and applications."
+      description: "Integrating security practices into your development workflow with secure coding guidelines and SAST/DAST implementation."
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "Data Protection",
-      description: "Comprehensive data protection strategies with backup, recovery, and compliance solutions."
+      icon: <FileLock className="w-8 h-8" />,
+      title: "Data Privacy",
+      description: "Protecting sensitive information with data classification, encryption strategies, and privacy-focused system architectures."
     },
     {
-      icon: <Radio className="w-8 h-8" />,
-      title: "Security Monitoring",
-      description: "24/7 monitoring services with immediate alerts and response to potential security incidents."
+      icon: <Wrench className="w-8 h-8" />,
+      title: "IT Management",
+      description: "Comprehensive IT infrastructure management with security-focused configuration, monitoring, and maintenance services."
     }
   ];
 
