@@ -104,16 +104,12 @@ const Products = () => {
       name: "OpenFix",
       description: "A comprehensive platform for vulnerability management and remediation across your entire development lifecycle.",
       features: [
-        "Automated vulnerability scanning and triage",
-        "Integration with CI/CD pipelines",
-        "Real-time security alerts and notifications",
         "Comprehensive dashboard for vulnerability management",
         "Detailed remediation guides and recommendations",
         "Continuous vulnerability scanning",
         "Risk-based prioritization",
         "Integration with development workflows",
-        "Compliance reporting and documentation",
-        "Automated remediation workflows"
+        "Compliance reporting and documentation"
       ],
       mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
       icon: <Shield className="w-32 h-32" />
