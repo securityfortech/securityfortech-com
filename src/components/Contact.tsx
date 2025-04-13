@@ -13,14 +13,13 @@ const Contact = () => {
           <p className="text-cyber-light/80 font-exo">Get in touch with our team to discuss how we can help secure your tech company.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-10 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div>
+        <div className="flex justify-center items-center max-w-6xl mx-auto">
+          <div className="text-center">
             <div className="mb-10">
-              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light">Contact Information</h3>
+              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light text-center">Contact Information</h3>
               
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center gap-4">
                   <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                     <Mail className="w-5 h-5" />
                   </div>
@@ -30,7 +29,7 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center gap-4">
                   <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -40,7 +39,7 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center gap-4">
                   <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                     <MapPin className="w-5 h-5" />
                   </div>
@@ -53,9 +52,9 @@ const Contact = () => {
             </div>
             
             <div>
-              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light">Connect With Us</h3>
+              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light text-center">Connect With Us</h3>
               
-              <div className="flex gap-4">
+              <div className="flex justify-center gap-4">
                 <a href="#" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Linkedin className="w-5 h-5" />
                 </a>
