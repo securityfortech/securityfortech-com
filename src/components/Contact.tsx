@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
 
@@ -48,7 +47,7 @@ const Contact = () => {
                 <a href="https://www.linkedin.com/company/securityfortech/" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="https://twitter.com/securityfortech" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                <a href="https://x.com/agenticsecurity" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a href="https://github.com/securityfortech" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
