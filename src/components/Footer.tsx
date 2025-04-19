@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer = () => {
@@ -50,7 +49,7 @@ const Footer = () => {
         
         <div className="mt-10 pt-6 border-t border-cyber-primary/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-cyber-light/60">
-            &copy; {new Date().getFullYear()} SecurityforTech.com. All rights reserved.
+            &copy; 2025 SecurityforTech. All rights reserved.
           </p>
           
           <div className="mt-4 md:mt-0">
