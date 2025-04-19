@@ -58,10 +58,10 @@ const ContactUs = () => {
                 <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Email</h4>
                   <a 
-                    href="mailto:contact@securityfortech.com" 
+                    href="mailto:contact@SecurityforTech.com" 
                     className="text-cyber-light/70 hover:text-cyber-primary transition-colors"
                   >
-                    contact@securityfortech.com
+                    contact@SecurityforTech.com
                   </a>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const ContactUs = () => {
             
             <div className="flex justify-center gap-6">
               <a 
-                href="https://www.linkedin.com/company/securityfortech/" 
+                href="https://www.linkedin.com/company/SecurityforTech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
@@ -101,7 +101,7 @@ const ContactUs = () => {
                 <Twitter className="w-6 h-6" aria-hidden="true" />
               </a>
               <a 
-                href="https://github.com/securityfortech" 
+                href="https://github.com/SecurityforTech" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"

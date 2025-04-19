@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -7,11 +7,17 @@ interface ServiceCardProps {
   description: string;
 }
 
-const ServiceCard = ({
+interface Service {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   title,
   description
-}: ServiceCardProps) => {
+}) => {
   return (
     <div className="cyber-card p-6 flex flex-col items-start transition-all duration-500 hover:translate-y-[-5px] hover:shadow-neon group">
       <div className="mb-4 text-cyber-primary group-hover:text-cyber-secondary transition-colors duration-300 p-3 rounded-md bg-cyber-dark/50">
@@ -23,7 +29,7 @@ const ServiceCard = ({
   );
 };
 
-const Services = () => {
+const Services: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -35,10 +41,8 @@ const Services = () => {
         const sectionTop = rect.top + scrollPosition;
         const sectionHeight = rect.height;
         
-        // Calculate the scroll progress through the section
         const progress = (window.scrollY - sectionTop) / sectionHeight;
         
-        // Apply parallax effect to the grid
         gridRef.current.style.transform = `translateY(${progress * 50}px)`;
         gridRef.current.style.opacity = `${0.3 - (progress * 0.1)}`;
       }
@@ -48,7 +52,7 @@ const Services = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services = [
+  const services: Service[] = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Compliance",
@@ -101,7 +105,12 @@ const Services = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
-            <ServiceCard key={index} icon={service.icon} title={service.title} description={service.description} />
+            <ServiceCard 
+              key={index} 
+              icon={service.icon} 
+              title={service.title} 
+              description={service.description} 
+            />
           ))}
         </div>
       </div>
@@ -110,4 +119,3 @@ const Services = () => {
 };
 
 export default Services;
-

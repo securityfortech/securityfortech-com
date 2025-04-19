@@ -1,18 +1,30 @@
-
 import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
 import posthog from 'posthog-js';
 
-if (typeof window !== 'undefined') {
-  posthog.init(
-    'phc_dJKvUiBRRDQngpdHXSwPiEx72ypcgFD4Fj96WrivTpM',
-    {
-      api_host: 'https://app.posthog.com',
+import App from './App';
+import './index.css';
+
+const initPostHog = () => {
+  if (typeof window !== 'undefined' && import.meta.env.VITE_ENABLE_ANALYTICS === 'true') {
+    posthog.init(import.meta.env.VITE_POSTHOG_API_KEY, {
+      api_host: import.meta.env.VITE_POSTHOG_HOST,
       capture_pageview: false,
       persistence: 'localStorage',
-    }
-  );
+      loaded: (posthog) => {
+        if (process.env.NODE_ENV === 'development') {
+          posthog.debug();
+        }
+      }
+    });
+  }
+};
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Failed to find the root element');
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+initPostHog();
+
+createRoot(rootElement).render(<App />);

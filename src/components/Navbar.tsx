@@ -69,7 +69,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://cal.com/securityfortech/"
+            href="https://cal.com/SecurityforTech/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackBookUsClick}
@@ -117,7 +117,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="https://cal.com/securityfortech/"
+              href="https://cal.com/SecurityforTech/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {

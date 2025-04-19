@@ -39,8 +39,8 @@ src/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/securityfortech/securityfortech-com.git
-   cd securityfortech-com
+   git clone https://github.com/SecurityforTech/SecurityforTech-com.git
+   cd SecurityforTech-com
    ```
 
 2. Install dependencies:
