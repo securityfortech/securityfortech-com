@@ -29,11 +29,11 @@ const ContactUs = () => {
   };
 
   return (
-    <section id="contact-us" className="py-16 relative overflow-hidden">
+    <section id="get-in-touch" className="py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">
-            Contact Us
+            Get in Touch
           </h2>
           <p className="text-cyber-light/80 font-exo text-lg">
             Have a project or collaboration in mind? Let's discuss how we can help secure your technology.
