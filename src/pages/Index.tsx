@@ -1,10 +1,8 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Products from '../components/Products';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import CyberGrid from '../components/CyberGrid';
 import ContactUs from '../components/ContactUs';
@@ -30,12 +28,6 @@ const Index = () => {
         <div className="relative bg-gradient-to-br from-cyber-dark to-cyber-dark/90">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-primary/5 via-transparent to-transparent"></div>
           <Products />
-        </div>
-
-        {/* Contact section with subtle grid */}
-        <div className="relative bg-gradient-to-b from-cyber-dark/95 to-cyber-dark">
-          <div className="absolute inset-0 cyber-grid-bg opacity-10"></div>
-          <Contact />
         </div>
 
         {/* Get in Touch section with a unique gradient */}
