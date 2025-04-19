@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench } from 'lucide-react';
 
@@ -79,4 +78,3 @@ const Services = () => {
 };
 
 export default Services;
-
