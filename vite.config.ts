@@ -14,6 +14,15 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 3000,
     host: true,
+    headers: {
+      'X-Frame-Options': 'DENY',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+      'Content-Security-Policy': mode === 'production' 
+        ? "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.posthog.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://app.posthog.com;"
+        : "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.posthog.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://app.posthog.com;"
+    }
   },
   build: {
     target: 'esnext',

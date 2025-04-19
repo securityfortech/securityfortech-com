@@ -1,0 +1,5 @@
+# Security contact information for SecurityforTech
+Contact: mailto:security@securityfortech.com
+Expires: 2025-04-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://securityfortech.com/.well-known/security.txt 

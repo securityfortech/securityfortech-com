@@ -1,0 +1,42 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "00:00"
+      timezone: "UTC"
+    # Allow updates for all dependencies
+    open-pull-requests-limit: 10
+    # Group updates by dependency type
+    groups:
+      production-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      dev-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    # Labels to add to pull requests
+    labels:
+      - "dependencies"
+      - "npm"
+    # Commit message preferences
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Reviewers to assign
+    reviewers:
+      - "securityfortech"
+    # Assignees to add
+    assignees:
+      - "securityfortech"
+    # Milestone to add
+    milestone: 1 
