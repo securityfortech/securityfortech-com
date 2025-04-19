@@ -118,15 +118,15 @@ const Products = () => {
     <section 
       id="products" 
       ref={sectionRef}
-      className={`py-20 relative overflow-hidden transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`py-16 relative overflow-hidden transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-16 text-center max-w-2xl mx-auto">
+      <div className="container max-w-5xl mx-auto px-4 relative z-10">
+        <div className="mb-12 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Products</h2>
           <p className="text-cyber-light/80 font-exo">Cutting-edge cybersecurity solutions designed to protect your digital assets and infrastructure.</p>
         </div>
         
-        <div className="space-y-16">
+        <div className="space-y-12">
           {products.map((product, index) => (
             <ProductShowcase
               key={index}

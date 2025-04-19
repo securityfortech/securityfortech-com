@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="py-10 border-t border-cyber-primary/20 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+    <footer className="py-8 border-t border-cyber-primary/20 relative overflow-hidden">
+      <div className="container max-w-5xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center gap-2">
               <div className="h-6 w-6 rounded-md bg-cyber-primary"></div>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-10 pt-6 border-t border-cyber-primary/10 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 pt-6 border-t border-cyber-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-cyber-light/60">
             &copy; 2025 SecurityforTech. All rights reserved.
           </p>
