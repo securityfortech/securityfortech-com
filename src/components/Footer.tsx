@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,7 +17,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-2 text-sm text-cyber-light/60 max-w-xs">
-              Building cybersecurity programs for tech companies around the globe.
+              Building cybersecurity programs for tech companies across EMEA.
             </p>
           </div>
           
@@ -24,27 +25,54 @@ const Footer = () => {
             <div>
               <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="/about" className="text-cyber-light/60 hover:text-cyber-light transition-colors">About</a></li>
-                <li><a href="/careers" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Careers</a></li>
-                <li><a href="/blog" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Blog</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Support</h4>
-              <ul className="space-y-2">
-                <li><a href="/help" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Help Center</a></li>
-                <li><a href="/docs" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Documentation</a></li>
-                <li><a href="/status" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Status</a></li>
+                <li><Link to="/about" className="text-cyber-light/60 hover:text-cyber-light transition-colors">About</Link></li>
+                <li><Link to="/careers" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Careers</Link></li>
+                <li><Link to="/blog" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Blog</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><a href="/privacy" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Privacy</a></li>
-                <li><a href="/terms" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Terms</a></li>
-                <li><a href="/security" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Security</a></li>
+                <li><Link to="/privacy" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Terms of Service</Link></li>
+                <li><Link to="/security" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Security</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Connect</h4>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="https://www.linkedin.com/company/securityfortech/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://x.com/agenticsecurity" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
+                  >
+                    X (Twitter)
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://github.com/securityfortech" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

@@ -20,14 +20,13 @@ const Contact = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-start gap-4">
                 <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
-                  <Mail className="w-6 h-6" />
+                  <Mail className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Email</h4>
                   <a 
                     href="mailto:contact@securityfortech.com" 
                     className="text-cyber-light/70 hover:text-cyber-primary transition-colors"
-                    rel="noopener noreferrer"
                   >
                     contact@securityfortech.com
                   </a>
@@ -36,7 +35,7 @@ const Contact = () => {
               
               <div className="flex items-center justify-start gap-4">
                 <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
-                  <MapPin className="w-6 h-6" />
+                  <MapPin className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Location</h4>
@@ -57,7 +56,7 @@ const Contact = () => {
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="w-6 h-6" aria-hidden="true" />
               </a>
               <a 
                 href="https://x.com/agenticsecurity" 
@@ -66,7 +65,7 @@ const Contact = () => {
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
                 aria-label="X (formerly Twitter)"
               >
-                <Twitter className="w-6 h-6" />
+                <Twitter className="w-6 h-6" aria-hidden="true" />
               </a>
               <a 
                 href="https://github.com/securityfortech" 
@@ -75,7 +74,7 @@ const Contact = () => {
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
                 aria-label="GitHub"
               >
-                <Github className="w-6 h-6" />
+                <Github className="w-6 h-6" aria-hidden="true" />
               </a>
             </div>
           </div>
