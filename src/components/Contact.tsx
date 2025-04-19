@@ -45,13 +45,13 @@ const Contact = () => {
               <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light">Connect With Us</h3>
               
               <div className="flex gap-4">
-                <a href="#" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                <a href="https://www.linkedin.com/company/securityfortech/" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                <a href="https://twitter.com/securityfortech" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="#" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                <a href="https://github.com/securityfortech" target="_blank" rel="noopener noreferrer" className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all">
                   <Github className="w-5 h-5" />
                 </a>
               </div>
