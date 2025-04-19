@@ -7,6 +7,7 @@ import Products from '../components/Products';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import CyberGrid from '../components/CyberGrid';
+import ContactUs from '../components/ContactUs';
 
 const Index = () => {
   return (
@@ -35,6 +36,12 @@ const Index = () => {
         <div className="relative bg-gradient-to-b from-cyber-dark/95 to-cyber-dark">
           <div className="absolute inset-0 cyber-grid-bg opacity-10"></div>
           <Contact />
+        </div>
+
+        {/* Contact Us section with a unique gradient */}
+        <div className="relative bg-gradient-to-br from-cyber-dark/90 to-cyber-dark/95 border-y border-cyber-primary/10">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyber-primary/5 via-transparent to-transparent opacity-30"></div>
+          <ContactUs />
         </div>
 
         {/* Footer with dark background */}
