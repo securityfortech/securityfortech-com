@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Shield, Lock, Brain } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -101,32 +100,6 @@ const Products = () => {
 
   const products = [
     {
-      name: "OpenFix",
-      description: "A comprehensive platform for vulnerability management and remediation across your entire development lifecycle.",
-      features: [
-        "Comprehensive dashboard for vulnerability management",
-        "Detailed remediation guides and recommendations",
-        "Continuous vulnerability scanning",
-        "Risk-based prioritization",
-        "Integration with development workflows"
-      ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/20 to-cyber-dark",
-      icon: <Shield className="w-32 h-32" />
-    },
-    {
-      name: "OpenTrust",
-      description: "A comprehensive platform for building, managing, and showcasing your security posture and compliance status.",
-      features: [
-        "Security documentation portal",
-        "Compliance certification management",
-        "Customer security questionnaire automation",
-        "Real-time security status dashboard",
-        "Vendor risk management tools"
-      ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-accent/20 to-cyber-dark",
-      icon: <Lock className="w-32 h-32" />
-    },
-    {
       name: "Ae/maeth Agentic AI",
       description: "Agentic AI for augmented CISO capabilities, providing intelligent security decision support and automation.",
       features: [
@@ -171,4 +144,3 @@ const Products = () => {
 };
 
 export default Products;
-
