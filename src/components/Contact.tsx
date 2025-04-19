@@ -7,13 +7,13 @@ const Contact = () => {
     <section id="contact" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
       
-      <div className="container max-w-4xl mx-auto px-4 relative z-10 flex flex-col items-center">
-        <div className="mb-10 text-center max-w-2xl">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Contact Us</h2>
           <p className="text-cyber-light/80 font-exo text-lg">Get in touch with our team to discuss how we can help secure your tech company.</p>
         </div>
         
-        <div className="w-full max-w-md text-center">
+        <div className="w-full max-w-md mx-auto text-center">
           <div className="mb-10">
             <h3 className="text-2xl font-orbitron font-semibold mb-6 text-cyber-light">Contact Information</h3>
             

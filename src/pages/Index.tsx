@@ -10,14 +10,16 @@ import CyberGrid from '../components/CyberGrid';
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-cyber-dark text-cyber-light overflow-x-hidden max-w-[1400px] mx-auto">
-      <CyberGrid />
-      <Navbar />
-      <Hero />
-      <Services />
-      <Products />
-      <Contact />
-      <Footer />
+    <main className="min-h-screen bg-cyber-dark text-cyber-light overflow-x-hidden">
+      <div className="max-w-[1400px] mx-auto">
+        <CyberGrid />
+        <Navbar />
+        <Hero />
+        <Services />
+        <Products />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 };
