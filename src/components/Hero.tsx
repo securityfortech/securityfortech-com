@@ -94,7 +94,7 @@ const Hero = () => {
               <a 
                 href="#services" 
                 onClick={scrollToServices}
-                className="inline-flex items-center justify-center px-8 py-3 font-medium border border-cyber-primary/50 rounded-md text-cyber-light hover:bg-cyber-primary/10 transition-colors duration-300 relative z-20"
+                className="inline-flex items-center justify-center px-8 py-3 font-medium border border-cyber-primary/50 rounded-md text-cyber-light hover:bg-cyber-primary/10 transition-colors duration-300 relative z-20 font-orbitron"
               >
                 Explore Services
               </a>

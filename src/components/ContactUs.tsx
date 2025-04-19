@@ -56,10 +56,10 @@ const ContactUs = () => {
                   <Mail className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-cyber-light font-medium mb-2">Email</h4>
+                  <h4 className="text-cyber-light font-orbitron font-medium mb-2">Email</h4>
                   <a 
                     href="mailto:contact@SecurityforTech.com" 
-                    className="text-cyber-light/70 hover:text-cyber-primary transition-colors"
+                    className="text-cyber-light/70 hover:text-cyber-primary transition-colors font-exo"
                   >
                     contact@SecurityforTech.com
                   </a>
@@ -71,8 +71,8 @@ const ContactUs = () => {
                   <MapPin className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-cyber-light font-medium mb-2">Location</h4>
-                  <p className="text-cyber-light/70">Europe, Middle East and North Africa</p>
+                  <h4 className="text-cyber-light font-orbitron font-medium mb-2">Location</h4>
+                  <p className="text-cyber-light/70 font-exo">Europe, Middle East and North Africa</p>
                 </div>
               </div>
             </div>

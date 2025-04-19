@@ -100,7 +100,7 @@ const Services: React.FC = () => {
       <div className="container max-w-5xl mx-auto px-4 relative z-10">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Services</h2>
-          <p className="text-cyber-light/80 font-exo">Operational security leadership designed to protect your tech company from evolving threats while aligning with regulatory and compliance requirements.</p>
+          <p className="text-cyber-light/80 font-exo text-lg">Operational security leadership designed to protect your tech company from evolving threats while aligning with regulatory and compliance requirements.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
