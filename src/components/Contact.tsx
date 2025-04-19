@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Mail, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
-
 const Contact = () => {
-  return (
-    <section id="contact" className="py-16 relative overflow-hidden">
+  return <section id="contact" className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
       
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
@@ -15,7 +12,7 @@ const Contact = () => {
         
         <div className="w-full max-w-md mx-auto text-center">
           <div className="mb-10">
-            <h3 className="text-2xl font-orbitron font-semibold mb-6 text-cyber-light">Contact Information</h3>
+            
             
             <div className="space-y-6">
               <div className="flex items-center justify-start gap-4">
@@ -57,8 +54,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;

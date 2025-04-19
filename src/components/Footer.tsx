@@ -1,8 +1,6 @@
 import React from 'react';
-
 const Footer = () => {
-  return (
-    <footer className="py-8 border-t border-cyber-primary/20 relative overflow-hidden">
+  return <footer className="py-8 border-t border-cyber-primary/20 relative overflow-hidden">
       <div className="container max-w-5xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
           <div className="mb-6 md:mb-0">
@@ -52,19 +50,9 @@ const Footer = () => {
             &copy; 2025 SecurityforTech. All rights reserved.
           </p>
           
-          <div className="mt-4 md:mt-0">
-            <a href="#" className="text-sm text-cyber-light/60 hover:text-cyber-primary transition-colors">
-              Privacy Policy
-            </a>
-            <span className="mx-2 text-cyber-light/60">|</span>
-            <a href="#" className="text-sm text-cyber-light/60 hover:text-cyber-primary transition-colors">
-              Terms of Service
-            </a>
-          </div>
+          
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
