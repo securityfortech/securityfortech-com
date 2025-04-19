@@ -18,21 +18,21 @@ const Contact = () => {
             <h3 className="text-2xl font-orbitron font-semibold mb-6 text-cyber-light">Contact Information</h3>
             
             <div className="space-y-6">
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-start gap-4">
                 <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                   <Mail className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Email</h4>
                   <a href="mailto:contact@securityfortech.com" className="text-cyber-light/70 hover:text-cyber-primary transition-colors">contact@securityfortech.com</a>
                 </div>
               </div>
               
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-start gap-4">
                 <div className="p-3 bg-cyber-primary/10 rounded-md text-cyber-primary">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Location</h4>
                   <p className="text-cyber-light/70">Europe, the Middle East and Africa</p>
                 </div>
