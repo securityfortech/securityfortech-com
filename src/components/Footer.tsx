@@ -14,7 +14,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-2 text-sm text-cyber-light/60 max-w-xs">
-              Providing cutting-edge cybersecurity solutions for tech companies around the globe.
+              Building cybersecurity programs for tech companies around the globe.
             </p>
           </div>
           
