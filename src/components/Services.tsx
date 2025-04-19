@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -25,6 +24,30 @@ const ServiceCard = ({
 };
 
 const Services = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current && gridRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollPosition = window.scrollY;
+        const sectionTop = rect.top + scrollPosition;
+        const sectionHeight = rect.height;
+        
+        // Calculate the scroll progress through the section
+        const progress = (window.scrollY - sectionTop) / sectionHeight;
+        
+        // Apply parallax effect to the grid
+        gridRef.current.style.transform = `translateY(${progress * 50}px)`;
+        gridRef.current.style.opacity = `${0.3 - (progress * 0.1)}`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const services = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
@@ -59,7 +82,17 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-16 relative overflow-hidden">
+    <section ref={sectionRef} id="services" className="py-16 relative overflow-hidden">
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
+        style={{ 
+          backgroundSize: '50px 50px',
+          backgroundPosition: 'center',
+          transform: 'translateY(0) scale(1)'
+        }}
+      ></div>
+      
       <div className="container max-w-5xl mx-auto px-4 relative z-10">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Services</h2>
@@ -72,8 +105,6 @@ const Services = () => {
           ))}
         </div>
       </div>
-      
-      <div className="absolute inset-0 bg-cyber-gradient opacity-10 z-0"></div>
     </section>
   );
 };

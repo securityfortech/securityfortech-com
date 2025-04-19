@@ -1,140 +1,83 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Shield, Lock, Brain } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import React, { useEffect, useRef } from 'react';
+import { Brain } from 'lucide-react';
+import { CardProps } from '../types';
+import { PRODUCTS } from '../constants';
 
-interface ProductProps {
-  name: string;
-  description: string;
-  features: string[];
-  mockupClassName: string;
-  icon: React.ReactNode;
-}
+const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'brain':
+      return <Brain className="w-8 h-8" />;
+    default:
+      return null;
+  }
+};
 
-const ProductShowcase = ({ name, description, features, mockupClassName, icon }: ProductProps) => {
-  const [loaded, setLoaded] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
+const ProductCard = ({
+  icon,
+  title,
+  description
+}: CardProps) => {
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-center mb-24">
-      <div className="w-full md:w-1/2">
-        {loaded ? (
-          <div className={`cyber-blur p-6 rounded-lg aspect-video relative ${mockupClassName} flex items-center justify-center`}>
-            <div className="absolute top-4 left-4 flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <div className="text-cyber-light/70 opacity-40">
-              {icon}
-            </div>
-          </div>
-        ) : (
-          <Skeleton className="h-[300px] w-full rounded-lg" />
-        )}
+    <div className="cyber-card p-6 flex flex-col items-start transition-all duration-500 hover:translate-y-[-5px] hover:shadow-neon group">
+      <div className="mb-4 text-cyber-primary group-hover:text-cyber-secondary transition-colors duration-300 p-3 rounded-md bg-cyber-dark/50">
+        {typeof icon === 'string' ? getIcon(icon) : icon}
       </div>
-      
-      <div className="w-full md:w-1/2">
-        {loaded ? (
-          <>
-            <h3 className="text-2xl font-orbitron font-semibold mb-3 text-cyber-primary">{name}</h3>
-            <p className="text-cyber-light/80 mb-6 font-exo">{description}</p>
-            
-            <ul className="space-y-2">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-cyber-accent">✓</span>
-                  <span className="text-cyber-light/70">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : (
-          <div className="space-y-4">
-            <Skeleton className="h-8 w-3/4" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <div className="space-y-2 mt-6">
-              <Skeleton className="h-4 w-5/6" />
-              <Skeleton className="h-4 w-5/6" />
-              <Skeleton className="h-4 w-5/6" />
-              <Skeleton className="h-4 w-5/6" />
-              <Skeleton className="h-4 w-5/6" />
-            </div>
-          </div>
-        )}
-      </div>
+      <h3 className="text-xl font-orbitron font-semibold mb-3 text-cyber-light">{title}</h3>
+      <p className="text-cyber-light/80 font-exo">{description}</p>
     </div>
   );
 };
 
 const Products = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+    const handleScroll = () => {
+      if (sectionRef.current && gridRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollPosition = window.scrollY;
+        const sectionTop = rect.top + scrollPosition;
+        const sectionHeight = rect.height;
+        
+        // Calculate the scroll progress through the section
+        const progress = (window.scrollY - sectionTop) / sectionHeight;
+        
+        // Apply parallax effect to the grid
+        gridRef.current.style.transform = `translateY(${progress * 50}px)`;
+        gridRef.current.style.opacity = `${0.3 - (progress * 0.1)}`;
       }
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const products = [
-    {
-      name: "Ae/maeth Agentic AI",
-      description: "Agentic AI for augmented CISO capabilities, providing intelligent security decision support and automation.",
-      features: [
-        "AI-driven security analysis and recommendations",
-        "Automated threat hunting and response",
-        "Intelligent security policy management",
-        "Predictive risk assessment",
-        "Natural language security query interface"
-      ],
-      mockupClassName: "bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-cyber-dark via-cyber-primary/30 to-cyber-dark",
-      icon: <Brain className="w-32 h-32" />
-    }
-  ];
-
   return (
-    <section 
-      id="products" 
-      ref={sectionRef}
-      className={`py-16 relative overflow-hidden transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-    >
+    <section ref={sectionRef} id="products" className="py-16 relative overflow-hidden">
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
+        style={{ 
+          backgroundSize: '50px 50px',
+          backgroundPosition: 'center',
+          transform: 'translateY(0) scale(1)'
+        }}
+      ></div>
+      
       <div className="container max-w-5xl mx-auto px-4 relative z-10">
-        <div className="mb-12 text-center max-w-2xl mx-auto">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Products</h2>
           <p className="text-cyber-light/80 font-exo">Cutting-edge cybersecurity solutions designed to protect your digital assets and infrastructure.</p>
         </div>
         
-        <div className="space-y-12">
-          {products.map((product, index) => (
-            <ProductShowcase
-              key={index}
-              name={product.name}
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 max-w-2xl mx-auto">
+          {PRODUCTS.map((product, index) => (
+            <ProductCard 
+              key={index} 
+              icon={product.icon} 
+              title={product.title} 
               description={product.description}
-              features={product.features}
-              mockupClassName={product.mockupClassName}
-              icon={product.icon}
             />
           ))}
         </div>

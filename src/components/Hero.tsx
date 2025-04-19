@@ -1,20 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-
-const CodeScroller = () => {
-  const codeLines = ['import { SecurityProtocol } from "@securityfortech/core";', 'const firewall = new SecurityProtocol();', 'await firewall.scanNetwork("192.168.1.1/24");', 'const vulnerabilities = await firewall.detectVulnerabilities();', 'firewall.patchSystem(vulnerabilities);', 'console.log("Security status: PROTECTED");', 'const encryptionLevel = "AES-256";', 'await firewall.deployEncryption(encryptionLevel);', 'monitorTraffic({ alerts: true });', 'initIntrustionDetection({', '  sensitivity: "high",', '  responseTime: "instant"', '});', 'blockchain.secure(userData);'];
-  return <div className="absolute right-0 top-0 h-full overflow-hidden w-48 md:w-64 lg:w-96 opacity-40">
-      <div className="font-code text-xs md:text-sm text-cyber-primary/80 whitespace-nowrap animate-scroll-data">
-        {[...codeLines, ...codeLines, ...codeLines].map((line, index) => <div key={index} className="mb-2 pl-4 border-l border-cyber-primary/30">
-            {line}
-          </div>)}
-      </div>
-    </div>;
-};
+import React, { useRef, useEffect } from 'react';
+import CodeScroller from './CodeScroller';
 
 const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Simple animation on load
     setTimeout(() => {
@@ -34,10 +27,39 @@ const Hero = () => {
         ctaRef.current.style.opacity = "1";
       }
     }, 1300);
+
+    // Parallax effect
+    const handleScroll = () => {
+      if (sectionRef.current && gridRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollPosition = window.scrollY;
+        const sectionTop = rect.top + scrollPosition;
+        const sectionHeight = rect.height;
+        
+        // Calculate the scroll progress through the section
+        const progress = (window.scrollY - sectionTop) / sectionHeight;
+        
+        // Apply parallax effect to the grid
+        gridRef.current.style.transform = `translateY(${progress * 30}px) scale(${1 + progress * 0.1})`;
+        gridRef.current.style.opacity = `${0.3 - (progress * 0.2)}`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-16">
-      <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
+    <section ref={sectionRef} className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-16">
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
+        style={{ 
+          backgroundSize: '50px 50px',
+          backgroundPosition: 'center',
+          transform: 'translateY(0) scale(1)'
+        }}
+      ></div>
       
       <div className="container max-w-4xl mx-auto px-4 relative z-10 text-center">
         <div className="relative">

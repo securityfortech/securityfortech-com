@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -13,27 +12,28 @@ const Index = () => {
     <main className="min-h-screen bg-cyber-dark text-cyber-light overflow-x-hidden">
       <div className="relative">
         {/* Navigation and Hero section with grid background */}
-        <div className="relative bg-cyber-dark">
+        <div className="relative">
+          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
           <CyberGrid />
           <Navbar />
           <Hero />
         </div>
 
-        {/* Services section with smooth gradient */}
-        <div className="relative bg-gradient-to-b from-cyber-dark via-cyber-dark/95 to-cyber-dark/90">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyber-primary/5 via-transparent to-transparent opacity-10"></div>
+        {/* Services section */}
+        <div className="relative">
+          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
           <Services />
         </div>
 
-        {/* Products section with different gradient */}
-        <div className="relative bg-gradient-to-b from-cyber-dark/90 via-cyber-dark/95 to-cyber-dark">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyber-primary/10 via-transparent to-transparent opacity-20"></div>
+        {/* Products section */}
+        <div className="relative">
+          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
           <Products />
         </div>
 
-        {/* Contact section with smooth gradient */}
-        <div className="relative bg-gradient-to-b from-cyber-dark via-cyber-dark/90 to-cyber-dark/95">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-cyber-primary/5 via-transparent to-transparent opacity-20"></div>
+        {/* Contact section */}
+        <div className="relative">
+          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
           <ContactUs />
         </div>
 

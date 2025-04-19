@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { posthog } from "../providers/PostHogProvider";
@@ -34,6 +33,12 @@ const Navbar = () => {
     posthog.capture("book_us_click");
   };
 
+  const navItems = [
+    { label: "Services", href: "#services" },
+    { label: "Products", href: "#products" },
+    { label: "Contact", href: "#get-in-touch" }
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -52,14 +57,14 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8">
-          {["Services", "Products", "Contact"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => trackNavClick(item)}
+              key={item.label}
+              href={item.href}
+              onClick={() => trackNavClick(item.label)}
               className="relative text-cyber-light hover:text-cyber-primary transition-colors duration-300 font-exo font-medium group"
             >
-              {item}
+              {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyber-primary transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100"></span>
             </a>
           ))}
@@ -98,17 +103,17 @@ const Navbar = () => {
           </button>
 
           <nav className="flex flex-col items-center gap-8">
-            {["Services", "Products", "Contact"].map((item) => (
+            {navItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 onClick={() => {
-                  trackNavClick(item);
+                  trackNavClick(item.label);
                   setMobileMenuOpen(false);
                 }}
                 className="text-2xl text-cyber-light hover:text-cyber-primary hover:shadow-neon transition-colors duration-300"
               >
-                {item}
+                {item.label}
               </a>
             ))}
             <a

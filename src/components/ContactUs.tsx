@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Mail, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
 
 const ContactUs = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current && gridRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollPosition = window.scrollY;
+        const sectionTop = rect.top + scrollPosition;
+        const sectionHeight = rect.height;
+        
+        // Calculate the scroll progress through the section
+        const progress = (window.scrollY - sectionTop) / sectionHeight;
+        
+        // Apply parallax effect to the grid
+        gridRef.current.style.transform = `translateY(${progress * 35}px) scale(${1 + progress * 0.08})`;
+        gridRef.current.style.opacity = `${0.3 - (progress * 0.12)}`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="get-in-touch" className="py-16 relative overflow-hidden">
+    <section ref={sectionRef} id="get-in-touch" className="py-16 relative overflow-hidden">
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
+        style={{ 
+          backgroundSize: '50px 50px',
+          backgroundPosition: 'center',
+          transform: 'translateY(0) scale(1)'
+        }}
+      ></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">
