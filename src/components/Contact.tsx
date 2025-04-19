@@ -34,7 +34,7 @@ const Contact = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="text-cyber-light font-medium mb-1">Location</h4>
-                  <p className="text-cyber-light/70">Europe, the Middle East and Africa</p>
+                  <p className="text-cyber-light/70">North Africa</p>
                 </div>
               </div>
             </div>
