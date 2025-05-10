@@ -1,8 +1,8 @@
+
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-import Products from '../components/Products';
 import Footer from '../components/Footer';
 import CyberGrid from '../components/CyberGrid';
 import ContactUs from '../components/ContactUs';
@@ -23,12 +23,6 @@ const Index = () => {
         <div className="relative">
           <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
           <Services />
-        </div>
-
-        {/* Products section */}
-        <div className="relative">
-          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
-          <Products />
         </div>
 
         {/* Contact section */}
