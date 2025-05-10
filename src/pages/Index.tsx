@@ -19,13 +19,13 @@ const Index = () => {
         <Hero />
       </section>
 
-      {/* Services section */}
-      <section className="relative">
+      {/* Services section - reduced top padding */}
+      <section className="relative -mt-20">
         <Services />
       </section>
 
-      {/* Contact section */}
-      <section className="relative">
+      {/* Contact section - reduced top padding */}
+      <section className="relative -mt-12">
         <ContactUs />
       </section>
 

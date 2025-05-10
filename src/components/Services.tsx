@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench } from 'lucide-react';
 
@@ -86,7 +87,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="services" className="py-16 relative overflow-hidden">
+    <section ref={sectionRef} id="services" className="py-10 relative overflow-hidden">
       <div 
         ref={gridRef}
         className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
@@ -98,7 +99,7 @@ const Services: React.FC = () => {
       ></div>
       
       <div className="container max-w-5xl mx-auto px-4 relative z-10">
-        <div className="mb-10 text-center max-w-2xl mx-auto">
+        <div className="mb-8 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Services</h2>
           <p className="text-cyber-light/80 font-exo text-lg">Operational security leadership designed to protect your tech company from evolving threats while aligning with regulatory and compliance requirements.</p>
         </div>

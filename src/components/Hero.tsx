@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import CodeScroller from './CodeScroller';
 
@@ -56,7 +57,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-24 pb-32">
+    <section ref={sectionRef} className="relative min-h-[85vh] w-full overflow-hidden flex items-center justify-center pt-24 pb-16">
       <div 
         ref={gridRef}
         className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
@@ -74,11 +75,11 @@ const Hero = () => {
           </div>
           
           <div className="relative z-20">
-            <h1 ref={headingRef} className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gradient opacity-0 transform translate-y-8 transition-all duration-1000">
+            <h1 ref={headingRef} className="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient opacity-0 transform translate-y-8 transition-all duration-1000">
               Building Cybersecurity for Tech Companies
             </h1>
             
-            <p ref={subheadingRef} className="text-lg md:text-xl font-exo text-cyber-light/90 mb-12 mx-auto max-w-2xl opacity-0 transform translate-y-8 transition-all duration-1000">
+            <p ref={subheadingRef} className="text-lg md:text-xl font-exo text-cyber-light/90 mb-8 mx-auto max-w-2xl opacity-0 transform translate-y-8 transition-all duration-1000">
               We secure your products, applications, infrastructure, and workstations so you can focus on growth. Our expertise in cybersecurity, compliance, and data privacy helps you close deals by meeting every security requirement your customers expect.
             </p>
             
