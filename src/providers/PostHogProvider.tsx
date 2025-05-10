@@ -1,18 +1,19 @@
+
 import React, { useEffect } from 'react';
 import posthog from 'posthog-js';
 import { useLocation } from 'react-router-dom';
 
-const POSTHOG_API_KEY = import.meta.env.VITE_POSTHOG_API_KEY;
-const POSTHOG_HOST = import.meta.env.VITE_POSTHOG_HOST || 'https://eu.i.posthog.com';
+// We'll use environment variables for configuration
 const IS_DEVELOPMENT = import.meta.env.DEV;
+const ENABLE_ANALYTICS = import.meta.env.VITE_ENABLE_ANALYTICS === 'true';
 
-// Initialize PostHog only in production or if explicitly enabled in development
-if (typeof window !== 'undefined' && (!IS_DEVELOPMENT || import.meta.env.VITE_ENABLE_POSTHOG_IN_DEV === 'true')) {
+// Initialize PostHog only if analytics are enabled
+if (typeof window !== 'undefined' && ENABLE_ANALYTICS) {
   try {
-    posthog.init(POSTHOG_API_KEY, {
-      api_host: POSTHOG_HOST,
+    posthog.init(import.meta.env.VITE_POSTHOG_API_KEY || 'phc_dJKvUiBRRDQngpdHXSwPiEx72ypcgFD4Fj96WrivTpM', {
+      api_host: import.meta.env.VITE_POSTHOG_HOST || 'https://eu.i.posthog.com',
       person_profiles: 'always',
-      capture_pageview: false, // We'll handle this manually
+      capture_pageview: false,
       capture_pageleave: true,
       autocapture: true,
       loaded: (posthog) => {
@@ -30,7 +31,7 @@ export const PostHogProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const location = useLocation();
 
   useEffect(() => {
-    if (!posthog.__loaded) return;
+    if (!posthog.__loaded || !ENABLE_ANALYTICS) return;
 
     try {
       // Capture page views
@@ -52,7 +53,9 @@ export const PostHogProvider: React.FC<{ children: React.ReactNode }> = ({ child
     // Cleanup
     return () => {
       try {
-        posthog.capture('$pageleave');
+        if (ENABLE_ANALYTICS) {
+          posthog.capture('$pageleave');
+        }
       } catch (error) {
         console.error('Failed to track page leave:', error);
       }

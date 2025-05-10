@@ -10,32 +10,29 @@ import ContactUs from '../components/ContactUs';
 const Index = () => {
   return (
     <main className="min-h-screen bg-cyber-dark text-cyber-light overflow-x-hidden">
-      <div className="relative">
-        {/* Navigation and Hero section with grid background */}
-        <div className="relative">
-          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
-          <CyberGrid />
-          <Navbar />
-          <Hero />
-        </div>
+      {/* CyberGrid provides the main background effect */}
+      <CyberGrid />
+      
+      {/* Header section */}
+      <section className="relative">
+        <Navbar />
+        <Hero />
+      </section>
 
-        {/* Services section */}
-        <div className="relative">
-          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
-          <Services />
-        </div>
+      {/* Services section */}
+      <section className="relative">
+        <Services />
+      </section>
 
-        {/* Contact section */}
-        <div className="relative">
-          <div className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1]"></div>
-          <ContactUs />
-        </div>
+      {/* Contact section */}
+      <section className="relative">
+        <ContactUs />
+      </section>
 
-        {/* Footer with dark background */}
-        <div className="relative bg-black/40 backdrop-blur-sm">
-          <Footer />
-        </div>
-      </div>
+      {/* Footer section */}
+      <section className="relative bg-black/40 backdrop-blur-sm">
+        <Footer />
+      </section>
     </main>
   );
 };
