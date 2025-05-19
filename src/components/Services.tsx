@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench, Shield, GraduationCap } from 'lucide-react';
+import { ShieldCheck, Bug, Cloud, UserCog, Users, GraduationCap, Database, Activity, Search } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -56,48 +56,48 @@ const Services: React.FC = () => {
   const services: Service[] = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
-      title: "Compliance",
+      title: "Compliance & Risk",
       description: "Achieve SOC 2, ISO 27001, GDPR, HIPAA, and more. We streamline audits and accelerate your compliance roadmap."
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "AppSec",
-      description: "Secure your development lifecycle with code audits, automated scans, and actionable remediation."
+      icon: <Bug className="w-8 h-8" />,
+      title: "Pentest & Bug Bounty",
+      description: "Identify vulnerabilities before attackers do with rigorous penetration testing and managed bug bounty programs."
     },
     {
       icon: <Cloud className="w-8 h-8" />,
-      title: "CloudSec",
-      description: "Detect and defuse cloud vulnerabilities before they become security incidents."
+      title: "AppSec & CloudSec",
+      description: "Secure your development lifecycle and cloud infrastructure with automated scans and actionable remediation."
     },
     {
-      icon: <Clock className="w-8 h-8" />,
-      title: "Incident Response",
-      description: "Contain breaches with expert-led investigation, and detailed post-incident reporting."
+      icon: <UserCog className="w-8 h-8" />,
+      title: "vCISO & Management",
+      description: "On-demand security leadership to guide your strategy, governance, and compliance initiatives."
     },
     {
-      icon: <FileLock className="w-8 h-8" />,
-      title: "Data Privacy",
-      description: "Ensure data protection with smart classification, encryption, and systems architected for privacy."
-    },
-    {
-      icon: <Wrench className="w-8 h-8" />,
-      title: "IT Management", 
-      description: "Manage workstation fleets with secure configuration, continuous monitoring, and proactive maintenance."
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Threat Intelligence",
-      description: "Stay ahead of emerging threats with curated intelligence feeds tailored to your industry and technology stack."
-    },
-    {
-      icon: <ShieldCheck className="w-8 h-8" />,
-      title: "Pentest",
-      description: "Identify vulnerabilities before attackers do with rigorous penetration testing of your applications and infrastructure."
+      icon: <Users className="w-8 h-8" />,
+      title: "IAM & IT Management",
+      description: "Manage identities, access controls, and IT infrastructure with secure configuration and continuous monitoring."
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
       title: "Training",
       description: "Empower your team with cybersecurity awareness and technical security training customized for your organization."
+    },
+    {
+      icon: <Database className="w-8 h-8" />,
+      title: "Data Management",
+      description: "Ensure data protection with smart classification, encryption, and systems architected for privacy and compliance."
+    },
+    {
+      icon: <Activity className="w-8 h-8" />,
+      title: "SOC & DFIR",
+      description: "24/7 security monitoring, threat detection, and incident response to protect your business from cyber threats."
+    },
+    {
+      icon: <Search className="w-8 h-8" />,
+      title: "Threat Intelligence",
+      description: "Stay ahead of emerging threats with curated intelligence feeds tailored to your industry and technology stack."
     }
   ];
 
@@ -116,7 +116,7 @@ const Services: React.FC = () => {
       <div className="container max-w-5xl mx-auto px-4 relative z-10">
         <div className="mb-8 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Services</h2>
-          <p className="text-cyber-light/80 font-exo text-lg">We offer on-demand cybersecurity skills for your organization. You benefit from flexible services at a fixed cost, covering a wide variety of skills and expertise. We are ready to deliver across the following domains:</p>
+          <p className="text-cyber-light/80 font-exo text-lg">Operational security leadership designed to protect your tech company from evolving threats while aligning with regulatory and compliance requirements.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
