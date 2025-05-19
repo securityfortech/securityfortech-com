@@ -70,14 +70,14 @@ const Services: React.FC = () => {
       description: "Secure your development lifecycle and cloud infrastructure with automated scans and actionable remediation."
     },
     {
-      icon: <UserCog className="w-8 h-8" />,
-      title: "vCISO & Management",
-      description: "On-demand security leadership to guide your strategy, governance, and compliance initiatives."
-    },
-    {
       icon: <Users className="w-8 h-8" />,
       title: "IAM & IT Management",
       description: "Manage identities, access controls, and IT infrastructure with secure configuration and continuous monitoring."
+    },
+    {
+      icon: <UserCog className="w-8 h-8" />,
+      title: "vCISO & Management",
+      description: "On-demand security leadership to guide your strategy, governance, and compliance initiatives."
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
