@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench } from 'lucide-react';
+import { ShieldCheck, Code, Cloud, FileLock, Clock, Wrench, Shield, GraduationCap } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -83,6 +83,21 @@ const Services: React.FC = () => {
       icon: <Wrench className="w-8 h-8" />,
       title: "IT Management", 
       description: "Manage workstation fleets with secure configuration, continuous monitoring, and proactive maintenance."
+    },
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Threat Intelligence",
+      description: "Stay ahead of emerging threats with curated intelligence feeds tailored to your industry and technology stack."
+    },
+    {
+      icon: <ShieldCheck className="w-8 h-8" />,
+      title: "Pentest",
+      description: "Identify vulnerabilities before attackers do with rigorous penetration testing of your applications and infrastructure."
+    },
+    {
+      icon: <GraduationCap className="w-8 h-8" />,
+      title: "Training",
+      description: "Empower your team with cybersecurity awareness and technical security training customized for your organization."
     }
   ];
 
