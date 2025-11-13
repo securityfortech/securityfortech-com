@@ -59,10 +59,10 @@ const ContactUs = () => {
                 <div className="text-left">
                   <h4 className="text-cyber-light font-orbitron font-medium mb-2">Email</h4>
                   <a 
-                    href="mailto:contact@SecurityforTech.com" 
+                    href="mailto:contact@securityfortech.com" 
                     className="text-cyber-light/70 hover:text-cyber-primary transition-colors font-exo"
                   >
-                    contact@SecurityforTech.com
+                    contact@securityfortech.com
                   </a>
                 </div>
               </div>
