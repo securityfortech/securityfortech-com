@@ -84,7 +84,7 @@ const ContactUs = () => {
             
             <div className="flex justify-center gap-8">
               <a 
-                href="https://www.linkedin.com/company/SecurityforTech/" 
+                href="https://www.linkedin.com/company/securityfortech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
@@ -93,7 +93,7 @@ const ContactUs = () => {
                 <Linkedin className="w-6 h-6" aria-hidden="true" />
               </a>
               <a 
-                href="https://github.com/SecurityforTech" 
+                href="https://github.com/securityfortech" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
