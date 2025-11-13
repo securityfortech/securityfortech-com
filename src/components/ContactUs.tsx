@@ -93,15 +93,6 @@ const ContactUs = () => {
                 <Linkedin className="w-6 h-6" aria-hidden="true" />
               </a>
               <a 
-                href="https://x.com/agenticsecurity" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-3 bg-cyber-dark border border-cyber-primary/30 rounded-md text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary transition-all"
-                aria-label="X (formerly Twitter)"
-              >
-                <Twitter className="w-6 h-6" aria-hidden="true" />
-              </a>
-              <a 
                 href="https://github.com/SecurityforTech" 
                 target="_blank" 
                 rel="noopener noreferrer" 
