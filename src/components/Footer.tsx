@@ -45,7 +45,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <a 
-                    href="https://www.linkedin.com/company/SecurityforTech/" 
+                    href="https://www.linkedin.com/company/securityfortech/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-cyber-light/60 hover:text-cyber-light transition-colors"
@@ -55,17 +55,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a 
-                    href="https://x.com/agenticsecurity" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
-                  >
-                    X (Twitter)
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://github.com/SecurityforTech" 
+                    href="https://github.com/securityfortech" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-cyber-light/60 hover:text-cyber-light transition-colors"
