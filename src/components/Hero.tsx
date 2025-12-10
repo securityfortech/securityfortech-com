@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect, MouseEvent } from 'react';
 import CodeScroller from './CodeScroller';
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const scrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToServices = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
