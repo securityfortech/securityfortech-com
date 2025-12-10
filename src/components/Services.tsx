@@ -8,12 +8,6 @@ interface ServiceCardProps {
   description: string;
 }
 
-interface Service {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
 const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   title,
@@ -53,7 +47,7 @@ const Services: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services: Service[] = [
+  const services: ServiceCardProps[] = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Compliance & Risk",

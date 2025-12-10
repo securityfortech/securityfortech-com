@@ -1,6 +1,6 @@
 
-import React, { useRef, useEffect } from 'react';
-import { Mail, MapPin, Linkedin, Twitter, Github } from 'lucide-react';
+import { useRef, useEffect } from 'react';
+import { Mail, MapPin, Linkedin, Github } from 'lucide-react';
 
 const ContactUs = () => {
   const sectionRef = useRef<HTMLElement>(null);

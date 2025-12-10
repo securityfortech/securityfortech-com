@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -17,7 +16,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-2 text-sm text-cyber-light/60 max-w-xs">
-              Building cybersecurity programs for tech companies across EMEA.
+              Building cybersecurity for tech companies.
             </p>
           </div>
           
