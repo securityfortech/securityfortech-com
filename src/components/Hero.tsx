@@ -1,19 +1,15 @@
-
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import CodeScroller from './CodeScroller';
+import { useParallax } from '@/hooks/useParallax';
 
 const Hero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
+  const { ref: containerRef, y, opacity, scale } = useParallax<HTMLElement>({
+    offset: ["start start", "end start"],
+    yRange: ["0%", "50%"],
+    opacityRange: [0, 0.5],
+    opacityOutput: [1, 0],
+    scaleRange: [1, 1.1],
   });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   const scrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -24,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[90vh] w-full overflow-hidden flex items-center justify-center pt-24 pb-16">
+    <section ref={containerRef as React.RefObject<HTMLElement>} className="relative min-h-[90vh] w-full overflow-hidden flex items-center justify-center pt-24 pb-16">
       <motion.div 
         className="absolute inset-0 cyber-grid-bg z-[-1]"
         style={{ 
