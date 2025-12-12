@@ -1,4 +1,5 @@
 
+import { motion } from 'framer-motion';
 
 const CodeScroller = () => {
   const codeLines = [
@@ -20,13 +21,22 @@ const CodeScroller = () => {
 
   return (
     <div className="absolute right-0 top-0 h-full overflow-hidden w-48 md:w-64 lg:w-96 opacity-40">
-      <div className="font-code text-xs md:text-sm text-cyber-primary/80 whitespace-nowrap animate-scroll-data">
-        {[...codeLines, ...codeLines, ...codeLines].map((line, index) => (
+      <motion.div
+        className="font-code text-xs md:text-sm text-cyber-primary/80 whitespace-nowrap"
+        animate={{ y: [0, -500] }}
+        transition={{
+          repeat: Infinity,
+          duration: 30,
+          ease: "linear",
+          repeatType: "loop"
+        }}
+      >
+        {[...codeLines, ...codeLines, ...codeLines, ...codeLines].map((line, index) => (
           <div key={index} className="mb-2 pl-4 border-l border-cyber-primary/30">
             {line}
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

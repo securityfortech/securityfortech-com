@@ -1,53 +1,51 @@
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { ShieldCheck, Bug, Cloud, UserCog, Users, GraduationCap, Database, Activity, Search } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  index: number;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   title,
-  description
+  description,
+  index
 }) => {
   return (
-    <div className="cyber-card p-6 flex flex-col items-start transition-all duration-500 hover:translate-y-[-5px] hover:shadow-neon group">
-      <div className="mb-4 text-cyber-primary group-hover:text-cyber-secondary transition-colors duration-300 p-3 rounded-md bg-cyber-dark/50">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ y: -5, boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" }}
+      className="cyber-card p-6 flex flex-col items-start group relative z-10"
+    >
+      <div className="mb-4 text-cyber-primary group-hover:text-cyber-secondary transition-colors duration-300 p-3 rounded-md bg-cyber-dark/50 border border-cyber-primary/20">
         {icon}
       </div>
       <h3 className="text-xl font-orbitron font-semibold mb-3 text-cyber-light">{title}</h3>
-      <p className="text-cyber-light/80 font-exo">{description}</p>
-    </div>
+      <p className="text-cyber-light/80 font-exo leading-relaxed">{description}</p>
+    </motion.div>
   );
 };
 
 const Services: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current && gridRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollPosition = window.scrollY;
-        const sectionTop = rect.top + scrollPosition;
-        const sectionHeight = rect.height;
-        
-        const progress = (window.scrollY - sectionTop) / sectionHeight;
-        
-        gridRef.current.style.transform = `translateY(${progress * 50}px)`;
-        gridRef.current.style.opacity = `${0.3 - (progress * 0.1)}`;
-      }
-    };
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
 
-  const services: ServiceCardProps[] = [
+  const services = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Compliance & Risk",
@@ -96,30 +94,39 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="services" className="py-10 relative overflow-hidden">
-      <div 
-        ref={gridRef}
-        className="absolute inset-0 cyber-grid-bg opacity-30 z-[-1] transition-all duration-300"
-        style={{ 
+    <section ref={containerRef} id="services" className="py-24 relative overflow-hidden">
+      <motion.div
+        className="absolute inset-0 cyber-grid-bg z-[-1]"
+        style={{
+          y,
+          opacity: 0.15,
           backgroundSize: '50px 50px',
           backgroundPosition: 'center',
-          transform: 'translateY(0) scale(1)'
         }}
-      ></div>
-      
-      <div className="container max-w-5xl mx-auto px-4 relative z-10">
-        <div className="mb-8 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-glow text-cyber-light">Our Services</h2>
-          <p className="text-cyber-light/80 font-exo text-lg">Security leadership built for tech companies, protecting against modern threats and driving continuous compliance. We integrate deeply with your team to align security with product velocity, operational goals, and industry regulations, delivering precise and modular services without slowing you down.</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      />
+
+      <div className="container max-w-6xl mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-5xl font-orbitron font-bold mb-6 text-glow text-cyber-light">Our Services</h2>
+          <p className="text-cyber-light/80 font-exo text-lg leading-relaxed">
+            Security leadership built for tech companies, protecting against modern threats and driving continuous compliance. We integrate deeply with your team to align security with product velocity.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              icon={service.icon} 
-              title={service.title} 
-              description={service.description} 
+            <ServiceCard
+              key={index}
+              index={index}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
             />
           ))}
         </div>

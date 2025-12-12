@@ -1,5 +1,5 @@
-
 import type { Config } from "tailwindcss";
+import tailwindheaders from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -91,22 +91,22 @@ export default {
 					to: { height: "0" },
 				},
 				"glow": {
-					"0%, 100%": { 
-						opacity: "1", 
+					"0%, 100%": {
+						opacity: "1",
 						filter: "brightness(1)"
 					},
-					"50%": { 
-						opacity: "0.8", 
-						filter: "brightness(1.2)" 
+					"50%": {
+						opacity: "0.8",
+						filter: "brightness(1.2)"
 					},
 				},
 				"pulse-glow": {
 					"0%, 100%": {
-						opacity: 1,
+						opacity: "1",
 						boxShadow: "0 0 20px 5px rgba(139, 92, 246, 0.5)",
 					},
 					"50%": {
-						opacity: 0.9,
+						opacity: "0.9",
 						boxShadow: "0 0 30px 10px rgba(139, 92, 246, 0.7)",
 					},
 				},
@@ -119,24 +119,24 @@ export default {
 					}
 				},
 				"grid-fade": {
-					"0%": { 
-						opacity: 0.3
+					"0%": {
+						opacity: "0.3"
 					},
-					"50%": { 
-						opacity: 0.8
+					"50%": {
+						opacity: "0.8"
 					},
-					"100%": { 
-						opacity: 0.3
+					"100%": {
+						opacity: "0.3"
 					}
 				},
 				"text-slide": {
 					"0%": {
 						transform: "translateX(100%)",
-						opacity: 0
+						opacity: "0"
 					},
 					"100%": {
 						transform: "translateX(0)",
-						opacity: 1
+						opacity: "1"
 					}
 				},
 				"scroll-data": {
@@ -173,5 +173,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindheaders],
 } satisfies Config;
