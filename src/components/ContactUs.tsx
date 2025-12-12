@@ -1,17 +1,11 @@
-
-import { useRef } from 'react';
 import { Mail, MapPin, Linkedin, Github } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useParallax } from '@/hooks/useParallax';
 
 const ContactUs = () => {
-  const containerRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
+  const { ref: containerRef, y } = useParallax<HTMLElement>({
+    yRange: ["0%", "-10%"],
   });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
     <section ref={containerRef} id="get-in-touch" className="py-24 relative overflow-hidden">

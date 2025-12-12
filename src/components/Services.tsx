@@ -1,7 +1,6 @@
-
-import { useRef } from 'react';
 import { ShieldCheck, Bug, Cloud, UserCog, Users, GraduationCap, Database, Activity, Search } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useParallax } from '@/hooks/useParallax';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -35,15 +34,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 };
 
 const Services: React.FC = () => {
-  const containerRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
+  const { ref: containerRef, y } = useParallax<HTMLElement>({
+    yRange: ["0%", "20%"],
   });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
 
   const services = [
     {
