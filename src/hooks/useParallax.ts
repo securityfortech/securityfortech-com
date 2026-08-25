@@ -12,8 +12,8 @@ interface ParallaxOptions {
 interface ParallaxResult<T extends HTMLElement> {
   ref: React.RefObject<T>;
   y: MotionValue<string>;
-  opacity?: MotionValue<number>;
-  scale?: MotionValue<number>;
+  opacity: MotionValue<number>;
+  scale: MotionValue<number>;
 }
 
 export function useParallax<T extends HTMLElement = HTMLElement>(
@@ -36,13 +36,17 @@ export function useParallax<T extends HTMLElement = HTMLElement>(
 
   const y = useTransform(scrollYProgress, [0, 1], yRange);
   
-  const opacity = opacityRange && opacityOutput
-    ? useTransform(scrollYProgress, opacityRange, opacityOutput)
-    : undefined;
+  const opacity = useTransform(
+    scrollYProgress,
+    opacityRange ?? [0, 1],
+    opacityOutput ?? [1, 1]
+  );
 
-  const scale = scaleRange
-    ? useTransform(scrollYProgress, [0, 1], scaleRange)
-    : undefined;
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    scaleRange ?? [1, 1]
+  );
 
   return { ref, y, opacity, scale };
 }

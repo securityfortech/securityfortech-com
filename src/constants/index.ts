@@ -1,9 +1,6 @@
-import { Brain } from 'lucide-react';
-
 export const NAV_ITEMS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Products', href: '#products' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'What We Lead', href: '#services' },
+  { label: 'Start a Conversation', href: '#get-in-touch' }
 ];
 
 export const SOCIAL_LINKS = [
@@ -26,11 +23,3 @@ export const SOCIAL_LINKS = [
     ariaLabel: 'GitHub'
   }
 ];
-
-export const PRODUCTS = [
-  {
-    icon: 'brain',
-    title: "Ae/maeth Agentic AI",
-    description: "AI-powered security decision support system that automates threat analysis and provides intelligent recommendations."
-  }
-]; 

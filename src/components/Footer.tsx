@@ -1,6 +1,4 @@
 
-import { Link } from 'react-router-dom';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -16,31 +14,29 @@ const Footer = () => {
               </span>
             </div>
             <p className="mt-2 text-sm text-cyber-light/60 max-w-xs">
-              Building cybersecurity for tech companies.
+              Senior security leadership, built into your business.
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Company</h4>
+              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">What We Lead</h4>
               <ul className="space-y-2">
-                <li><Link to="/about" className="text-cyber-light/60 hover:text-cyber-light transition-colors">About</Link></li>
-                <li><Link to="/careers" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Careers</Link></li>
-                <li><Link to="/blog" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Blog</Link></li>
+                <li><a href="#services" className="text-cyber-light/60 hover:text-cyber-light transition-colors">vCISO Services</a></li>
+                <li><a href="https://cal.com/SecurityforTech/" target="_blank" rel="noopener noreferrer" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Talk to a vCISO</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Legal</h4>
+              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Start Here</h4>
               <ul className="space-y-2">
-                <li><Link to="/privacy" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Terms of Service</Link></li>
-                <li><Link to="/security" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Security</Link></li>
+                <li><a href="#get-in-touch" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Discuss Your Needs</a></li>
+                <li><a href="mailto:contact@securityfortech.com" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Send an Email</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Connect</h4>
+              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Follow</h4>
               <ul className="space-y-2">
                 <li>
                   <a 

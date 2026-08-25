@@ -28,10 +28,10 @@ const ContactUs = () => {
           className="mb-16 text-center max-w-2xl mx-auto"
         >
           <h2 className="text-3xl md:text-5xl font-orbitron font-bold mb-6 text-glow text-cyber-light">
-            Contact Us
+            Bring Us Your Next Security Decision
           </h2>
           <p className="text-cyber-light/80 font-exo text-lg">
-            Get in touch with our team to discuss how we can help secure your tech company.
+            Bring us your next audit, customer request, incident concern, or difficult security decision. We will help you find the first priorities and a practical way forward.
           </p>
         </motion.div>
 
@@ -52,7 +52,7 @@ const ContactUs = () => {
                   <Mail className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-cyber-light font-orbitron font-medium mb-1">Email</h4>
+                  <h3 className="text-cyber-light font-orbitron font-medium mb-1">Start by Email</h3>
                   <a
                     href="mailto:contact@securityfortech.com"
                     className="text-cyber-light/70 hover:text-cyber-primary transition-colors font-exo"
@@ -70,14 +70,23 @@ const ContactUs = () => {
                   <MapPin className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-cyber-light font-orbitron font-medium mb-1">Location</h4>
-                  <p className="text-cyber-light/70 font-exo">Europe, Middle East and North Africa</p>
+                  <h3 className="text-cyber-light font-orbitron font-medium mb-1">Where We Work</h3>
+                  <p className="text-cyber-light/70 font-exo">Europe, the Middle East, and North Africa</p>
                 </div>
               </motion.div>
             </div>
 
-            <div className="pt-8 border-t border-cyber-primary/10">
-              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light text-center">Connect With Us</h3>
+            <a
+              href="https://cal.com/SecurityforTech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full rounded-md border border-cyber-primary bg-cyber-primary/10 px-6 py-3 text-center font-orbitron font-semibold tracking-wide text-cyber-light transition-all duration-300 hover:bg-cyber-primary hover:shadow-neon"
+            >
+              Schedule an Intro Call
+            </a>
+
+            <div className="mt-8 pt-8 border-t border-cyber-primary/10">
+              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light text-center">Follow SecurityforTech</h3>
 
               <div className="flex justify-center gap-6">
                 {[

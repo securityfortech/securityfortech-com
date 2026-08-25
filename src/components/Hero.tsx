@@ -39,14 +39,22 @@ const Hero = () => {
           </div>
           
           <div className="relative z-20 flex flex-col items-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mb-5 font-orbitron text-sm font-semibold uppercase tracking-[0.24em] text-cyber-primary"
+            >
+              Virtual CISO Services for Tech Companies
+            </motion.p>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="font-orbitron text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-gradient leading-tight"
             >
-              Building Cybersecurity <br />
-              for Tech Companies
+              Your Security Leader. <br />
+              Part of the Team.
             </motion.h1>
             
             <motion.p 
@@ -55,7 +63,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-lg md:text-xl font-exo text-cyber-light/90 mb-10 max-w-2xl leading-relaxed"
             >
-              We secure your products, applications, infrastructure, and workstations so you can focus on growth. Expert security, compliance, and privacy solutions tailored for modern tech stacks.
+              Senior security leadership that turns risk, compliance pressure, and customer demands into a program your business can run—without adding a full-time executive.
             </motion.p>
             
             <motion.div 
@@ -68,7 +76,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyber-primary to-cyber-secondary opacity-70 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
                 <div className="relative px-8 py-3 bg-black/20 backdrop-blur-sm border border-cyber-light/10 rounded-md flex items-center justify-center overflow-hidden">
                    <div className="absolute inset-0 bg-gradient-to-r from-cyber-primary/40 to-cyber-secondary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                   <span className="relative text-cyber-light font-orbitron tracking-wide font-semibold">Book Us</span>
+                   <span className="relative text-cyber-light font-orbitron tracking-wide font-semibold">Talk to a vCISO</span>
                 </div>
               </a>
               
@@ -77,7 +85,7 @@ const Hero = () => {
                 onClick={scrollToServices}
                 className="px-8 py-3 font-medium border border-cyber-primary/30 rounded-md text-cyber-light hover:bg-cyber-primary/10 transition-colors duration-300 font-orbitron backdrop-blur-sm"
               >
-                Explore Services
+                Explore the Service
               </a>
             </motion.div>
           </div>

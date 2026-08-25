@@ -29,9 +29,8 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "Products", href: "#products" },
-    { label: "Contact", href: "#get-in-touch" }
+    { label: "What We Lead", href: "#services" },
+    { label: "Start a Conversation", href: "#get-in-touch" }
   ];
 
   return (
@@ -77,7 +76,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             className="px-6 py-2 bg-cyber-primary/10 border border-cyber-primary text-cyber-primary hover:bg-cyber-primary hover:text-white hover:shadow-neon transition-all duration-300 rounded font-orbitron font-medium text-sm tracking-wide uppercase"
           >
-            Book Us
+            Talk to a vCISO
           </motion.a>
         </nav>
 
@@ -153,7 +152,7 @@ const Navbar = () => {
                 }}
                 className="mt-8 px-10 py-4 bg-cyber-primary text-cyber-dark font-bold hover:shadow-neon transition-all duration-300 rounded-md font-orbitron text-lg tracking-widest uppercase w-full text-center"
               >
-                Book Us
+                Talk to a vCISO
               </motion.a>
             </motion.nav>
           </motion.div>

@@ -3,20 +3,18 @@ import { motion } from 'framer-motion';
 
 const CodeScroller = () => {
   const codeLines = [
-    'import { SecurityProtocol } from "@SecurityforTech/core";',
-    'const firewall = new SecurityProtocol();',
-    'await firewall.scanNetwork("192.168.1.1/24");',
-    'const vulnerabilities = await firewall.detectVulnerabilities();',
-    'firewall.patchSystem(vulnerabilities);',
-    'console.log("Security status: PROTECTED");',
-    'const encryptionLevel = "AES-256";',
-    'await firewall.deployEncryption(encryptionLevel);',
-    'monitorTraffic({ alerts: true });',
-    'initIntrusionDetection({',
-    '  sensitivity: "high",',
-    '  responseTime: "instant"',
-    '});',
-    'blockchain.secure(userData);'
+    'const securityLeader = hire("vCISO");',
+    'strategy.alignWith(businessGoals);',
+    'risk.focusOn("what-matters");',
+    'roadmap.assignOwners();',
+    'controls.fit(realOperations);',
+    'evidence.prepareFor(customerTrust);',
+    'engineering.removeSecurityFriction();',
+    'incidentPlan.practiceBeforeCrisis();',
+    'specialists.coordinate({ when: "needed" });',
+    'leadership.report(clearDecisions);',
+    'securityProgram.keepMoving();',
+    'console.log("Leadership: IN PLACE");'
   ];
 
   return (
@@ -41,4 +39,4 @@ const CodeScroller = () => {
   );
 };
 
-export default CodeScroller; 
+export default CodeScroller;
