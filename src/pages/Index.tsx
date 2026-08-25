@@ -8,28 +8,23 @@ import ContactUs from '../components/ContactUs';
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-cyber-dark text-cyber-light overflow-x-hidden">
-      {/* CyberGrid provides the main background effect */}
+    <main className="min-h-screen overflow-x-hidden bg-cyber-dark text-cyber-light">
       <CyberGrid />
-      
-      {/* Header section */}
+
       <section className="relative">
         <Navbar />
         <Hero />
       </section>
 
-      {/* Services section - reduced top padding */}
-      <section className="relative -mt-20">
+      <section className="relative">
         <Services />
       </section>
 
-      {/* Contact section - reduced top padding */}
-      <section className="relative -mt-12">
+      <section className="relative">
         <ContactUs />
       </section>
 
-      {/* Footer section */}
-      <section className="relative bg-black/40 backdrop-blur-sm">
+      <section className="relative">
         <Footer />
       </section>
     </main>

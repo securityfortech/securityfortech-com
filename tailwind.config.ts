@@ -63,17 +63,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Cyberpunk theme colors
 				cyber: {
-					"primary": "#8B5CF6", // Main purple
-					"secondary": "#D946EF", // Vibrant pink
-					"accent": "#1EAEDB", // Bright blue
-					"dark": "#0F0E17", // Dark background
-					"light": "#F9F8FC", // Light text
-					"glow": "#7E69AB", // Subtle glow
-					"grid": "#1A1F2C", // Grid color
-					"success": "#36F9C5", // Neon green/success
-					"warning": "#F97316", // Orange/warning
+					"primary": "#8B5CF6",
+					"secondary": "#B7A3FF",
+					"accent": "#74DCC1",
+					"dark": "#080B12",
+					"light": "#F3F5F7",
+					"glow": "#5B45A8",
+					"grid": "#1C2433",
+					"success": "#8CE7C5",
+					"warning": "#F0A35E",
 				}
 			},
 			borderRadius: {
@@ -159,9 +158,9 @@ export default {
 				"scroll-data": "scroll-data 30s linear infinite"
 			},
 			fontFamily: {
-				'exo': ['Exo 2', 'sans-serif'],
-				'orbitron': ['Orbitron', 'sans-serif'],
-				'code': ['JetBrains Mono', 'monospace'],
+				'exo': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				'orbitron': ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				'code': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
 			},
 			boxShadow: {
 				'neon': '0 0 5px theme(colors.cyber.primary), 0 0 20px theme(colors.cyber.glow)',

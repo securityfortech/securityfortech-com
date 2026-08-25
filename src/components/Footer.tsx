@@ -1,76 +1,30 @@
-
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="py-8 border-t border-cyber-primary/20 relative overflow-hidden">
-      <div className="container max-w-5xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
-          <div className="mb-6 md:mb-0">
-            <div className="flex items-center gap-2">
-              <div className="h-6 w-6 rounded-md bg-cyber-primary"></div>
-              <span className="text-lg font-orbitron font-bold text-cyber-light tracking-wider">
-                Security<span className="text-cyber-primary">for</span>Tech
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-cyber-light/60 max-w-xs">
-              Senior security leadership, built into your business.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
-            <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">What We Lead</h4>
-              <ul className="space-y-2">
-                <li><a href="#services" className="text-cyber-light/60 hover:text-cyber-light transition-colors">vCISO Services</a></li>
-                <li><a href="https://cal.com/SecurityforTech/" target="_blank" rel="noopener noreferrer" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Talk to a vCISO</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Start Here</h4>
-              <ul className="space-y-2">
-                <li><a href="#get-in-touch" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Discuss Your Needs</a></li>
-                <li><a href="mailto:contact@securityfortech.com" className="text-cyber-light/60 hover:text-cyber-light transition-colors">Send an Email</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-sm uppercase text-cyber-primary font-semibold mb-4">Follow</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="https://www.linkedin.com/company/securityfortech/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://github.com/securityfortech" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-cyber-light/60 hover:text-cyber-light transition-colors"
-                  >
-                    GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-8 pt-6 border-t border-cyber-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-cyber-light/60">
-            &copy; {currentYear} SecurityforTech. All rights reserved.
-          </p>
-        </div>
+const Footer = () => (
+  <footer className="border-t border-white/[0.08] py-10">
+    <div className="site-shell flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <a href="#" className="inline-flex items-center gap-3">
+          <span aria-hidden="true" className="relative grid h-8 w-8 place-items-center overflow-hidden rounded-lg border border-white/15 bg-white/[0.05] font-code text-[0.58rem] text-white">
+            S/T
+            <span className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-cyber-primary to-cyber-success" />
+          </span>
+          <span className="font-orbitron text-lg font-semibold tracking-[-0.035em] text-white">
+            Security<span className="font-normal text-white/60">for</span>Tech
+          </span>
+        </a>
+        <p className="mt-4 max-w-sm text-sm leading-6 text-white/38">Senior security leadership, built into your business.</p>
       </div>
-    </footer>
-  );
-};
+
+      <div className="flex flex-col gap-5 text-sm sm:items-end">
+        <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation">
+          <a href="#services" className="text-white/45 transition hover:text-white">What we lead</a>
+          <a href="#get-in-touch" className="text-white/45 transition hover:text-white">Contact</a>
+          <a href="https://www.linkedin.com/company/securityfortech/" target="_blank" rel="noopener noreferrer" className="text-white/45 transition hover:text-white">LinkedIn</a>
+          <a href="https://github.com/securityfortech" target="_blank" rel="noopener noreferrer" className="text-white/45 transition hover:text-white">GitHub</a>
+        </nav>
+        <p className="font-code text-[0.62rem] uppercase tracking-[0.12em] text-white/55">© {new Date().getFullYear()} SecurityforTech</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

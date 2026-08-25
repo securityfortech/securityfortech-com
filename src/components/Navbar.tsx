@@ -1,164 +1,125 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { posthog } from "../providers/PostHogProvider";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+
+const navItems = [
+  { label: "What we lead", href: "#services" },
+  { label: "Start a conversation", href: "#get-in-touch" },
+];
+
+const Brand = () => (
+  <a href="#" className="group flex items-center gap-3">
+    <span aria-hidden="true" className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl border border-white/15 bg-white/[0.06] font-code text-[0.65rem] font-medium text-white transition group-hover:border-cyber-primary/60">
+      S/T
+      <span className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-cyber-primary to-cyber-success" />
+    </span>
+    <span className="font-orbitron text-lg font-semibold tracking-[-0.035em] text-white sm:text-xl">
+      Security<span className="font-normal text-white/45">for</span>Tech
+    </span>
+  </a>
+);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const isScrolled = latest > 10;
-    if (isScrolled !== scrolled) {
-      setScrolled(isScrolled);
-    }
-  });
+  useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 24));
 
-  const handleMobileMenuToggle = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    posthog.capture("toggle_mobile_menu", { state: !mobileMenuOpen ? "open" : "closed" });
+  const toggleMenu = () => {
+    const nextState = !mobileMenuOpen;
+    setMobileMenuOpen(nextState);
+    posthog.capture("toggle_mobile_menu", { state: nextState ? "open" : "closed" });
   };
 
-  const trackNavClick = (item: string) => {
-    posthog.capture("nav_click", { item });
+  const closeAndTrack = (label: string) => {
+    posthog.capture("nav_click", { item: label });
+    setMobileMenuOpen(false);
   };
-
-  const trackBookUsClick = () => {
-    posthog.capture("book_us_click");
-  };
-
-  const navItems = [
-    { label: "What We Lead", href: "#services" },
-    { label: "Start a Conversation", href: "#get-in-touch" }
-  ];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-black/80 backdrop-blur-lg py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-cyber-primary/10"
-          : "bg-transparent py-5"
-        }`}
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-white/[0.08] bg-cyber-dark/85 py-3 backdrop-blur-xl" : "py-5"
+      }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="relative h-8 w-8 rounded-md bg-cyber-primary overflow-hidden">
-            <div className="absolute inset-0 bg-white/20 skew-x-12 -translate-x-full group-hover:animate-shine"></div>
-            <div className="absolute inset-0 animate-pulse-glow"></div>
-          </div>
-          <span className="text-xl font-orbitron font-bold text-cyber-light tracking-wider group-hover:text-white transition-colors">
-            Security<span className="text-cyber-primary group-hover:text-cyber-secondary transition-colors">for</span>Tech
-          </span>
-        </a>
+      <div className="site-shell flex items-center justify-between">
+        <Brand />
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
-              key={item.label}
+              key={item.href}
               href={item.href}
-              onClick={() => trackNavClick(item.label)}
-              className="relative text-cyber-light/80 hover:text-cyber-primary transition-colors duration-300 font-exo font-medium text-sm tracking-wide group"
+              onClick={() => closeAndTrack(item.label)}
+              className="text-sm font-medium text-white/55 transition hover:text-white"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyber-primary transition-all duration-300 group-hover:w-full opacity-0 group-hover:opacity-100 shadow-[0_0_8px_rgba(139,92,246,0.8)]"></span>
             </a>
           ))}
-          <motion.a
+          <a
             href="https://cal.com/SecurityforTech/"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={trackBookUsClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2 bg-cyber-primary/10 border border-cyber-primary text-cyber-primary hover:bg-cyber-primary hover:text-white hover:shadow-neon transition-all duration-300 rounded font-orbitron font-medium text-sm tracking-wide uppercase"
+            onClick={() => posthog.capture("book_us_click")}
+            className="primary-button !min-h-10 !px-5 !py-2"
           >
             Talk to a vCISO
-          </motion.a>
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </a>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-cyber-light hover:text-cyber-primary transition-colors"
-          onClick={handleMobileMenuToggle}
-          aria-label="Toggle menu"
+          type="button"
+          className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-white md:hidden"
+          onClick={toggleMenu}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
-          <Menu size={24} />
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 md:hidden flex flex-col items-center justify-center border-l border-cyber-primary/20"
+            id="mobile-navigation"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="absolute left-4 right-4 top-[4.75rem] rounded-2xl border border-white/10 bg-[#0d111b]/95 p-5 shadow-2xl backdrop-blur-2xl md:hidden"
           >
-            <button
-              onClick={handleMobileMenuToggle}
-              className="absolute top-6 right-6 text-cyber-light/60 hover:text-cyber-primary p-2 transition-colors"
-            >
-              <X size={32} />
-            </button>
-
-            <motion.nav
-              initial="hidden"
-              animate="show"
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1
-                  }
-                }
-              }}
-              className="flex flex-col items-center gap-8 w-full px-8"
-            >
+            <nav className="flex flex-col" aria-label="Mobile navigation">
               {navItems.map((item) => (
-                <motion.a
-                  key={item.label}
+                <a
+                  key={item.href}
                   href={item.href}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    show: { opacity: 1, y: 0 }
-                  }}
-                  onClick={() => {
-                    trackNavClick(item.label);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-3xl text-cyber-light font-orbitron font-bold hover:text-cyber-primary hover:text-glow transition-all duration-300"
+                  onClick={() => closeAndTrack(item.label)}
+                  className="border-b border-white/[0.07] py-4 font-orbitron text-xl font-medium text-white"
                 >
                   {item.label}
-                </motion.a>
+                </a>
               ))}
-              <motion.a
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 }
-                }}
+              <a
                 href="https://cal.com/SecurityforTech/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  trackBookUsClick();
+                  posthog.capture("book_us_click");
                   setMobileMenuOpen(false);
                 }}
-                className="mt-8 px-10 py-4 bg-cyber-primary text-cyber-dark font-bold hover:shadow-neon transition-all duration-300 rounded-md font-orbitron text-lg tracking-widest uppercase w-full text-center"
+                className="primary-button mt-5 w-full"
               >
                 Talk to a vCISO
-              </motion.a>
-            </motion.nav>
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 };
 
