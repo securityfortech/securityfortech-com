@@ -65,14 +65,14 @@ export default {
 				},
 				cyber: {
 					"primary": "#8B5CF6",
-					"secondary": "#B7A3FF",
-					"accent": "#74DCC1",
-					"dark": "#080B12",
-					"light": "#F3F5F7",
-					"glow": "#5B45A8",
-					"grid": "#1C2433",
-					"success": "#8CE7C5",
-					"warning": "#F0A35E",
+					"secondary": "#D946EF",
+					"accent": "#1EAEDB",
+					"dark": "#0B0813",
+					"light": "#FAF8FF",
+					"glow": "#7E69AB",
+					"grid": "#211934",
+					"success": "#6EE7C7",
+					"warning": "#F97316",
 				}
 			},
 			borderRadius: {

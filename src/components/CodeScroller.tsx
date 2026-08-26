@@ -1,38 +1,31 @@
+import { motion, useReducedMotion } from "framer-motion";
 
-import { motion } from 'framer-motion';
+const codeLines = [
+  'security.lead("with-context");',
+  "risk.prioritize();",
+  "roadmap.assignOwners();",
+  "controls.fit(operations);",
+  "evidence.buildTrust();",
+  "engineering.shipSecurely();",
+  "incidentPlan.practice();",
+  "leadership.decide();",
+];
 
 const CodeScroller = () => {
-  const codeLines = [
-    'const securityLeader = hire("vCISO");',
-    'strategy.alignWith(businessGoals);',
-    'risk.focusOn("what-matters");',
-    'roadmap.assignOwners();',
-    'controls.fit(realOperations);',
-    'evidence.prepareFor(customerTrust);',
-    'engineering.removeSecurityFriction();',
-    'incidentPlan.practiceBeforeCrisis();',
-    'specialists.coordinate({ when: "needed" });',
-    'leadership.report(clearDecisions);',
-    'securityProgram.keepMoving();',
-    'console.log("Leadership: IN PLACE");'
-  ];
+  const reduceMotion = useReducedMotion();
 
   return (
-    <div className="absolute right-0 top-0 h-full overflow-hidden w-48 md:w-64 lg:w-96 opacity-40">
+    <div
+      className="pointer-events-none absolute inset-y-24 right-0 hidden w-72 overflow-hidden opacity-30 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] sm:block lg:w-96"
+      aria-hidden="true"
+    >
       <motion.div
-        className="font-code text-xs md:text-sm text-cyber-primary/80 whitespace-nowrap"
-        animate={{ y: [0, -500] }}
-        transition={{
-          repeat: Infinity,
-          duration: 30,
-          ease: "linear",
-          repeatType: "loop"
-        }}
+        className="whitespace-nowrap border-l border-cyber-primary/25 pl-5 font-code text-xs leading-9 text-cyber-secondary/60"
+        animate={reduceMotion ? undefined : { y: [0, -288] }}
+        transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
       >
-        {[...codeLines, ...codeLines, ...codeLines, ...codeLines].map((line, index) => (
-          <div key={index} className="mb-2 pl-4 border-l border-cyber-primary/30">
-            {line}
-          </div>
+        {[...codeLines, ...codeLines, ...codeLines].map((line, index) => (
+          <div key={`${line}-${index}`}>{line}</div>
         ))}
       </motion.div>
     </div>

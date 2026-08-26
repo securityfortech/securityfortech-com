@@ -1,74 +1,118 @@
-import { ArrowUpRight, CalendarDays, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useParallax } from '@/hooks/useParallax';
 
-const ContactUs = () => (
-  <section id="get-in-touch" className="relative pb-24 pt-8 sm:pb-28 lg:pb-36">
-    <div className="site-shell">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#101521] shadow-[0_35px_100px_rgba(0,0,0,0.35)]">
-        <div className="pointer-events-none absolute -right-32 -top-40 h-[32rem] w-[32rem] rounded-full border border-cyber-primary/20" aria-hidden="true" />
-        <div className="pointer-events-none absolute -right-20 -top-28 h-[24rem] w-[24rem] rounded-full border border-cyber-success/10" aria-hidden="true" />
+const ContactUs = () => {
+  const { ref: containerRef, y } = useParallax<HTMLElement>({
+    yRange: ["0%", "-10%"],
+  });
 
-        <div className="relative grid lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="p-7 sm:p-10 lg:p-14 xl:p-16">
-            <p className="section-kicker">Start a conversation</p>
-            <h2 className="mt-6 max-w-3xl text-balance font-orbitron text-4xl font-medium leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
-              Bring us your next security decision.
-            </h2>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/55">
-              Bring us your next audit, customer request, incident concern, or difficult security decision. We will help you find the first priorities and a practical way forward.
-            </p>
+  return (
+    <section ref={containerRef} id="get-in-touch" className="relative isolate overflow-hidden py-24 sm:py-28">
+      <motion.div
+        className="absolute inset-0 cyber-grid-bg z-[-1]"
+        style={{
+          y,
+          opacity: 0.15,
+          backgroundSize: '50px 50px',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center max-w-2xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-5xl font-orbitron font-bold mb-6 text-glow text-cyber-light">
+            Bring Us Your Next Security Decision
+          </h2>
+          <p className="text-cyber-light/80 font-exo text-lg">
+            Bring us your next audit, customer request, incident concern, or difficult security decision. We will help you find the first priorities and a practical way forward.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="w-full max-w-md mx-auto"
+        >
+          <div className="bg-cyber-dark/40 backdrop-blur-md border border-cyber-primary/20 rounded-xl p-8 shadow-2xl">
+            <div className="space-y-8 mb-10">
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center justify-start gap-6"
+              >
+                <div className="p-3 bg-cyber-primary/10 rounded-lg text-cyber-primary border border-cyber-primary/20">
+                  <Mail className="w-6 h-6" aria-hidden="true" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-cyber-light font-orbitron font-medium mb-1">Start by Email</h3>
+                  <a
+                    href="mailto:contact@securityfortech.com"
+                    className="text-cyber-light/70 hover:text-cyber-primary transition-colors font-exo"
+                  >
+                    contact@securityfortech.com
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center justify-start gap-6"
+              >
+                <div className="p-3 bg-cyber-primary/10 rounded-lg text-cyber-primary border border-cyber-primary/20">
+                  <MapPin className="w-6 h-6" aria-hidden="true" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-cyber-light font-orbitron font-medium mb-1">Where We Work</h3>
+                  <p className="text-cyber-light/70 font-exo">Europe, the Middle East, and North Africa</p>
+                </div>
+              </motion.div>
+            </div>
 
             <a
               href="https://cal.com/SecurityforTech/"
               target="_blank"
               rel="noopener noreferrer"
-              className="primary-button mt-10"
+              className="block w-full rounded-md border border-cyber-primary bg-cyber-primary/10 px-6 py-3 text-center font-orbitron font-semibold tracking-wide text-cyber-light transition-all duration-300 hover:bg-cyber-primary hover:shadow-neon"
             >
-              <CalendarDays className="h-4 w-4" aria-hidden="true" />
-              Schedule an intro call
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              Schedule an Intro Call
             </a>
-          </div>
 
-          <div className="border-t border-white/[0.08] bg-black/10 p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-12 xl:p-14">
-            <p className="font-code text-[0.66rem] uppercase tracking-[0.18em] text-white/60">Direct contact</p>
-            <div className="mt-7 space-y-7">
-              <a href="mailto:contact@securityfortech.com" className="group flex items-start gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-cyber-success">
-                  <Mail className="h-4 w-4" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-xs text-white/60">Email</span>
-                  <span className="mt-1 block break-all text-sm font-medium text-white transition group-hover:text-cyber-success sm:text-base">contact@securityfortech.com</span>
-                </span>
-              </a>
+            <div className="mt-8 pt-8 border-t border-cyber-primary/10">
+              <h3 className="text-xl font-orbitron font-semibold mb-6 text-cyber-light text-center">Follow SecurityforTech</h3>
 
-              <div className="flex items-start gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-cyber-success">
-                  <MapPin className="h-4 w-4" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-xs text-white/60">Where we work</span>
-                  <span className="mt-1 block max-w-xs text-sm font-medium leading-6 text-white sm:text-base">Europe, the Middle East, and North Africa</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-10 border-t border-white/[0.08] pt-7">
-              <p className="text-xs text-white/60">Follow the work</p>
-              <div className="mt-4 flex gap-3">
-                <a href="https://www.linkedin.com/company/securityfortech/" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/55 transition hover:border-white/25 hover:text-white" aria-label="SecurityforTech on LinkedIn">
-                  <Linkedin className="h-4 w-4" aria-hidden="true" />
-                </a>
-                <a href="https://github.com/securityfortech" target="_blank" rel="noopener noreferrer" className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/55 transition hover:border-white/25 hover:text-white" aria-label="SecurityforTech on GitHub">
-                  <Github className="h-4 w-4" aria-hidden="true" />
-                </a>
+              <div className="flex justify-center gap-6">
+                {[
+                  { icon: Linkedin, href: "https://www.linkedin.com/company/securityfortech/", label: "LinkedIn" },
+                  { icon: Github, href: "https://github.com/securityfortech", label: "GitHub" },
+                ].map(({ icon: Icon, href, label }) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="p-4 bg-cyber-dark border border-cyber-primary/30 rounded-lg text-cyber-light/70 hover:text-cyber-primary hover:border-cyber-primary hover:shadow-neon transition-all"
+                    aria-label={label}
+                  >
+                    <Icon className="w-6 h-6" aria-hidden="true" />
+                  </motion.a>
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ContactUs;

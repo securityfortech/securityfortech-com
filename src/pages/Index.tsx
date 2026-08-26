@@ -24,7 +24,7 @@ const Index = () => {
         <ContactUs />
       </section>
 
-      <section className="relative">
+      <section className="relative bg-black/40 backdrop-blur-sm">
         <Footer />
       </section>
     </main>

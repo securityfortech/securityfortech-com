@@ -1,118 +1,103 @@
-import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
-
-const operatingLines = [
-  { label: "Board & leadership", value: "Clear decisions" },
-  { label: "Product & engineering", value: "Practical direction" },
-  { label: "Trust & compliance", value: "Audit ready" },
-];
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import CodeScroller from "./CodeScroller";
+import { useParallax } from "@/hooks/useParallax";
 
 const Hero = () => {
+  const reduceMotion = useReducedMotion();
+  const { ref: containerRef, y, scale } = useParallax<HTMLElement>({
+    offset: ["start start", "end start"],
+    yRange: ["0%", "32%"],
+    scaleRange: [1, 1.06],
+  });
+
   const scrollToServices = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative overflow-hidden pb-16 pt-36 sm:pb-20 sm:pt-44 lg:pb-24 lg:pt-48">
-      <div className="site-shell">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.12fr_0.88fr] lg:gap-20">
-          <div className="min-w-0">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-px w-8 bg-cyber-success" aria-hidden="true" />
-              <p className="section-kicker">Virtual CISO services for tech companies</p>
-            </div>
+    <section
+      ref={containerRef as React.RefObject<HTMLElement>}
+      className="relative isolate flex min-h-[88vh] w-full items-center justify-center overflow-hidden pb-20 pt-32 sm:pt-36"
+    >
+      <motion.div
+        className="cyber-grid-bg absolute inset-0 -z-10"
+        style={{ y, scale, backgroundPosition: "center", backgroundSize: "54px 54px" }}
+        animate={reduceMotion ? undefined : { opacity: [0.2, 0.42, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden="true"
+      />
 
-            <h1 className="max-w-4xl text-balance font-orbitron text-[clamp(2.8rem,7.3vw,6.8rem)] font-medium leading-[0.9] tracking-[-0.065em] text-white">
-              Your security leader.
-              <span className="mt-2 block text-white/42">Part of the team.</span>
-            </h1>
+      <motion.div
+        className="absolute left-1/2 top-1/2 -z-10 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyber-primary/20 blur-[110px]"
+        animate={reduceMotion ? undefined : { scale: [0.86, 1.08, 0.86], opacity: [0.42, 0.7, 0.42] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden="true"
+      />
+      <motion.div
+        className="absolute left-[12%] top-[24%] -z-10 h-56 w-56 rounded-full bg-cyber-secondary/15 blur-[90px]"
+        animate={reduceMotion ? undefined : { x: [0, 34, 0], y: [0, -24, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden="true"
+      />
 
-            <p className="mt-8 max-w-2xl text-balance text-lg leading-8 text-white/62 sm:text-xl">
-              Senior security leadership that turns risk, compliance pressure, and customer demands into a program your business can run—without adding a full-time executive.
-            </p>
+      <CodeScroller />
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://cal.com/SecurityforTech/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="primary-button"
-              >
-                Talk to a vCISO
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <a href="#services" onClick={scrollToServices} className="secondary-button">
-                Explore the service
-                <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
+      <div className="container relative z-10 mx-auto max-w-5xl px-5 text-center sm:px-8">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="mb-6 font-code text-[0.68rem] font-medium uppercase tracking-[0.24em] text-cyber-secondary sm:text-xs"
+        >
+          Virtual CISO services for tech companies
+        </motion.p>
 
-            <div className="mt-12 flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/45">
-              {["Executive-level ownership", "Flexible specialist bench", "No full-time hire"].map((item) => (
-                <span key={item} className="flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5 text-cyber-success" aria-hidden="true" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.72, delay: 0.06, ease: "easeOut" }}
+          className="text-gradient text-glow text-balance font-orbitron text-5xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-8xl"
+        >
+          Your Security Leader.
+          <span className="mt-2 block">Part of the Team.</span>
+        </motion.h1>
 
-          <aside
-            className="relative mx-auto min-w-0 w-full max-w-[31rem] lg:mx-0 lg:justify-self-end"
-            aria-label="Embedded security leadership operating model"
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.68, delay: 0.18, ease: "easeOut" }}
+          className="mx-auto mb-10 mt-8 max-w-2xl text-balance text-base leading-7 text-cyber-light/75 sm:text-lg sm:leading-8"
+        >
+          Senior security leadership that turns risk, compliance pressure, and customer demands into a program your business can run—without adding a full-time executive.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.68, delay: 0.28, ease: "easeOut" }}
+          className="flex flex-col justify-center gap-3 sm:flex-row"
+        >
+          <a
+            href="https://cal.com/SecurityforTech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-cyber-primary to-cyber-secondary px-7 py-3 font-orbitron text-sm font-semibold text-white shadow-[0_12px_35px_rgba(139,92,246,0.3)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_45px_rgba(217,70,239,0.38)]"
           >
-            <div className="absolute -inset-8 rounded-full bg-cyber-primary/10 blur-3xl" aria-hidden="true" />
-            <div className="surface relative overflow-hidden rounded-[1.75rem] p-5 shadow-[0_30px_90px_rgba(0,0,0,0.42)] sm:p-7">
-              <div className="flex items-start justify-between border-b border-white/[0.08] pb-6">
-                <div>
-                  <p className="font-code text-[0.64rem] uppercase tracking-[0.2em] text-white/38">Security leadership</p>
-                  <p className="mt-2 font-orbitron text-xl font-medium text-white">Operating view</p>
-                </div>
-                <span className="flex items-center gap-2 rounded-full border border-cyber-success/20 bg-cyber-success/[0.08] px-3 py-1.5 font-code text-[0.62rem] uppercase tracking-wider text-cyber-success">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyber-success shadow-[0_0_12px_#8CE7C5]" />
-                  Embedded
-                </span>
-              </div>
-
-              <div className="relative my-7 grid min-h-[15rem] place-items-center overflow-hidden rounded-2xl border border-white/[0.07] bg-[#090d15]">
-                <div className="absolute h-52 w-52 rounded-full border border-white/[0.07]" />
-                <div className="absolute h-36 w-36 rounded-full border border-cyber-primary/25" />
-                <div className="absolute h-20 w-20 rounded-full border border-cyber-success/30 bg-cyber-success/[0.04]" />
-                <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                <div className="absolute h-full w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-                <div className="relative z-10 text-center">
-                  <p className="font-code text-[0.6rem] uppercase tracking-[0.2em] text-white/35">Accountability</p>
-                  <p className="mt-2 font-orbitron text-2xl font-medium text-white">One roadmap</p>
-                  <p className="mt-1 text-xs text-cyber-success">Owned end to end</p>
-                </div>
-                <span className="absolute left-[24%] top-[25%] h-2 w-2 rounded-full bg-cyber-primary shadow-[0_0_18px_#8B5CF6]" />
-                <span className="absolute bottom-[24%] right-[22%] h-2 w-2 rounded-full bg-cyber-success shadow-[0_0_18px_#8CE7C5]" />
-              </div>
-
-              <div className="space-y-1">
-                {operatingLines.map((line, index) => (
-                  <div key={line.label} className="flex min-w-0 items-center justify-between rounded-xl px-3 py-3 transition hover:bg-white/[0.035]">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <span className="font-code text-[0.62rem] text-white/55">0{index + 1}</span>
-                      <span className="min-w-0 text-sm text-white/68">{line.label}</span>
-                    </div>
-                    <span className="ml-3 shrink-0 text-right text-[0.68rem] font-medium text-white sm:text-xs">{line.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <div className="mt-20 grid border-y border-white/[0.08] sm:grid-cols-[1.35fr_1fr] lg:mt-24">
-          <p className="py-6 pr-6 font-orbitron text-lg leading-relaxed text-white/72 sm:border-r sm:border-white/[0.08] sm:py-8 sm:pr-10 lg:text-xl">
-            Security becomes easier to run when one experienced leader owns the whole picture.
-          </p>
-          <div className="grid grid-cols-2 gap-3 border-t border-white/[0.08] py-6 sm:border-t-0 sm:py-8 sm:pl-10">
-            <p className="font-code text-[0.62rem] uppercase leading-5 tracking-[0.15em] text-white/38">Strategy<br /><span className="text-white/70">to execution</span></p>
-            <p className="font-code text-[0.62rem] uppercase leading-5 tracking-[0.15em] text-white/38">Board<br /><span className="text-white/70">to engineering</span></p>
-          </div>
-        </div>
+            <span className="absolute inset-0 translate-x-[-110%] bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-[110%]" />
+            <span className="relative">Talk to a vCISO</span>
+            <ArrowUpRight className="relative h-4 w-4" aria-hidden="true" />
+          </a>
+          <a
+            href="#services"
+            onClick={scrollToServices}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-cyber-primary/35 bg-cyber-primary/[0.07] px-7 py-3 font-orbitron text-sm font-medium text-white transition duration-300 hover:-translate-y-0.5 hover:border-cyber-secondary/60 hover:bg-cyber-primary/15"
+          >
+            Explore the service
+            <ArrowDown className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
